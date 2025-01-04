@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Variables Exercises</title>
+
+    <style>
+        .btnWrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+            gap: .5em;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,6 +24,13 @@
         <button id="add">Add to Cart</button>
         <button id="plusTwo">+2</button>
         <button id="plusThree">+3</button>
+        <button id="plusFour">+4</button>
+        <button id="plusFive">+5</button>
+
+        <button id="minusTwo">-2</button>
+        <button id="minusThree">-3</button>
+
+        <button id="remove">Remove</button>
         <button id="reset">Reset Cart</button>
     </div>
 
@@ -27,6 +44,13 @@
         const addBtn = document.getElementById('add');
         const plusTwoBtn = document.getElementById('plusTwo');
         const plusThreeBtn = document.getElementById('plusThree');
+        const plusFourBtn = document.getElementById('plusFour');
+        const plusFiveBtn = document.getElementById('plusFive');
+
+        const minusTwoBtn = document.getElementById('minusTwo');
+        const minusThreeBtn = document.getElementById('minusThree');
+
+        const removeBtn = document.getElementById('remove');
         const resetBtn = document.getElementById('reset');
         const cartQuantity = document.querySelector('.cartQuantity');
 
@@ -53,6 +77,40 @@
         plusThreeBtn.addEventListener('click', () => {
             // cart = cart + 3;
             cart += 3; // same as above
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+        plusFourBtn.addEventListener('click', () => {
+            cart += 4;
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+        plusFiveBtn.addEventListener('click', () => {
+            cart += 5;
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+
+        minusTwoBtn.addEventListener('click', () => {
+            cart -= 2;
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+        minusThreeBtn.addEventListener('click', () => {
+            cart -= 3;
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+
+        removeBtn.addEventListener('click', () => {
+            // cart = cart - 1;
+            // cart -= 1; same as above and below
+            cart--; // same as above
             console.log(`Cart Quantity: ${cart}`);
             cartQuantity.value = `Cart Quantity: ${cart}`;
         });
