@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables Exercises</title>
+</head>
+<body>
+
+    <p>Cart Quantity</p>
+
+    <div class="btnWrapper">
+        <button id="show">Show Quantity</button>
+        <button id="add">Add to Cart</button>
+        <button id="plusTwo">+2</button>
+        <button id="plusThree">+3</button>
+        <button id="reset">Reset Cart</button>
+    </div>
+
+    <input class="cartQuantity" type="text" value="" style="margin-top: 1em;">
+    
+
+    <script>
+        let cart = 0;
+
+        const showBtn = document.getElementById('show');
+        const addBtn = document.getElementById('add');
+        const plusTwoBtn = document.getElementById('plusTwo');
+        const plusThreeBtn = document.getElementById('plusThree');
+        const resetBtn = document.getElementById('reset');
+        const cartQuantity = document.querySelector('.cartQuantity');
+
+        showBtn.addEventListener('click', () => {
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+        addBtn.addEventListener('click', () => {
+            cart = cart + 1;
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+        plusTwoBtn.addEventListener('click', () => {
+            cart = cart + 2;
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+        plusThreeBtn.addEventListener('click', () => {
+            cart = cart + 3;
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = `Cart Quantity: ${cart}`;
+        });
+
+        resetBtn.addEventListener('click', () => {
+            cart = 0;
+            console.log('Cart is reset.');
+            console.log(`Cart Quantity: ${cart}`);
+            cartQuantity.value = 'Cart is reset.';
+        });
+    </script> 
+</body>
+</html>
