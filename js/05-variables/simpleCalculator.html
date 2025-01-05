@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #64748b;
+        }
+
+        .wrapper {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* border: 2px solid red; */
+            border-radius: .5em;
+            display: grid;
+            place-items: center;
+            width: 400px;
+            height: 500px;
+            background-color: #09090b;
+        }
+
+        .container {
+            display: grid;
+            border: 2px solid;
+            width: 100%;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 50px;
+            gap: .3em;
+            background-color: #1f2937;
+            /* margin-block: .5em; */
+        }
+
+        #clear {
+            grid-column: span 4;
+        }
+
+        #output {
+            width: 100%;
+            height: 100%;
+            font-size: 4rem;
+            color: white;
+            background-color: #09090b;
+            padding-inline: .3em;
+            border: none;
+            outline: none;
+            border-radius: .5em;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 1em;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        button {
+            outline: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #1f2937;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <p>Calculator</p>
+    <div class="wrapper">
+
+        <input type="text" id="output" value="" readonly>
+        <div class="container">
+    
+            <button id="num7">7</button>
+            <button id="num8">8</button>
+            <button id="num9">9</button>
+            <button id="multi">x</button>
+
+            <button id="num4">4</button>
+            <button id="num5">5</button>
+            <button id="num6">6</button>
+            <button id="minus">-</button>
+
+            <button id="num1">1</button>
+            <button id="num2">2</button>
+            <button id="num3">3</button>
+            <button id="plus">+</button>
+    
+            <button id="num0">0</button>
+            <button id="dot">.</button>
+            <button id="equal">=</button>
+            <button id="divide">/</button>
+
+            <button id="clear">Clear</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        let calculation = '';
+
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+        const num3 = document.getElementById('num3');
+        const num4 = document.getElementById('num4');
+        const num5 = document.getElementById('num5');
+        const num6 = document.getElementById('num6');
+        const num7 = document.getElementById('num7');
+        const num8 = document.getElementById('num8');
+        const num9 = document.getElementById('num9');
+        const num0 = document.getElementById('num0');
+
+
+        
+        const plus = document.getElementById('plus');
+        const minus = document.getElementById('minus');
+        const multi = document.getElementById('multi');
+        const divide = document.getElementById('divide');
+        const equal = document.getElementById('equal');
+        const clear = document.getElementById('clear');
+        const dot = document.getElementById('dot');
+        const input = document.getElementById('output');
+
+        num1.addEventListener('click', () => {
+            calculation += '1';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        num2.addEventListener('click', () => {
+            calculation += '2';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        num3.addEventListener('click', () => {
+            calculation += '3';
+            console.log(calculation);
+            input.value = calculation;
+        });
+        
+
+        num4.addEventListener('click', () => {
+            calculation += '4';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        num5.addEventListener('click', () => {
+            calculation += '5';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        num6.addEventListener('click', () => {
+            calculation += '6';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        num7.addEventListener('click', () => {
+            calculation += '7';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        num8.addEventListener('click', () => {
+            calculation += '8';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        num9.addEventListener('click', () => {
+            calculation += '9';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+
+        num0.addEventListener('click', () => {
+            calculation += '0';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+
+        plus.addEventListener('click', () => {
+            calculation += ' + ';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        minus.addEventListener('click', () => {
+            calculation += ' - ';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        multi.addEventListener('click', () => {
+            calculation += ' * ';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        divide.addEventListener('click', () => {
+            calculation += ' / ';
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+        clear.addEventListener('click', () => {
+            calculation = ''
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+
+        dot.addEventListener('click', () => {
+            calculation += '.';
+            console.log(calculation);
+            input.value = calculation;
+        });
+        
+        equal.addEventListener('click', () => {
+            eval(calculation);
+            calculation = eval(calculation);
+            console.log(calculation);
+            input.value = calculation;
+        });
+
+
+    </script>
+</body>
+</html>
