@@ -107,6 +107,8 @@
 
 
 
+        // if statements that we can write in single line
+
         // ==== Ternary Operator ? : === 
         // this is a shortcut for if else
         // advantage of this is we can save this if else statement on a variable
@@ -122,6 +124,42 @@
 
         
 
+        // === Guard Operator && ===
+        // can be define on variables
+
+        /* false && console.log('hello'); this is same as 
+
+            if (condition) {
+                console.log('hello');
+            }
+
+        */
+
+        /*
+        const message = 5 && 'hello';
+        console.log(message);
+
+        same as
+        let message;
+        if (condition) {
+            message = 'hello';
+        }
+        */
+
+
+        // === default operator || === 
+        /*
+        const currency = undefined || 'USD';
+        const currency = 'DOLLAR' || 'USD';
+
+        console.log(currency);
+
+        same as
+
+        if (!condition) {
+            currency = 'USD';
+        }
+        */
 
 
     </script>
