@@ -43,7 +43,7 @@
         //     console.log('hello'); 
         // }
 
-        // hindi to ma output
+        // hindi to ma output ang if
         /*
         if (false) {
             console.log('hello'); 
@@ -107,7 +107,7 @@
 
 
 
-        // if statements that we can write in single line
+        // ======if statements that we can write in single line=====
 
         // ==== Ternary Operator ? : === 
         // this is a shortcut for if else
@@ -115,8 +115,9 @@
 
         // true ? 'truthy' is equal to if (true) {'truthy'}
         // : 'falsy' is equal to else {'falsy'}
-        // true ? 'truthy' : 'falsy'
+        // this is the shortcut for if else in one line -> true ? 'truthy' : 'falsy'
 
+        // true ? console.log('truthy') : console.log('falsy');
         /*
         const result = true ? 'truthy' : 'falsy';
         console.log(result);
@@ -126,6 +127,7 @@
 
         // === Guard Operator && ===
         // can be define on variables
+        // this is like the if statement without the 'else'
 
         /* false && console.log('hello'); this is same as 
 
@@ -134,7 +136,6 @@
             }
 
         */
-
         /*
         const message = 5 && 'hello';
         console.log(message);
@@ -143,16 +144,17 @@
         let message;
         if (condition) {
             message = 'hello';
+            console.log(message);
         }
         */
 
+       
+       // === default operator || === 
+       /*
+       const currency = undefined || 'USD';
+       const currency = 'DOLLAR' || 'USD';
+       console.log(currency);
 
-        // === default operator || === 
-        /*
-        const currency = undefined || 'USD';
-        const currency = 'DOLLAR' || 'USD';
-
-        console.log(currency);
 
         same as
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <p>Cart Quantity</p>
@@ -35,7 +37,7 @@
     </div>
 
     <input class="cartQuantity" type="text" value="" style="margin-top: 1em;">
-    
+
 
     <script>
         let cart = 0;
@@ -62,57 +64,130 @@
         addBtn.addEventListener('click', () => {
             // cart = cart + 1;
             // cart += 1; same as above and below
-            cart++; // same as above
-            console.log(`Cart Quantity: ${cart}`);
-            cartQuantity.value = `Cart Quantity: ${cart}`;
+            // cart++;
+            // console.log(`Cart Quantity: ${cart}`);
+            // cartQuantity.value = `Cart Quantity: ${cart}`;
+
+            // cart + 1 > 10 ? console.log('The cart if full') : cart++ console.log(`Cart Quantity: ${cart}`);
+            if (cart + 1 > 10) {
+                console.log('The Cart is full');
+                alert('The Cart is full can\'t add more');
+            } else {
+                cart++;
+                console.log(`Cart Quantity: ${cart}`);
+                cartQuantity.value = `Cart Quantity: ${cart}`;
+            }
         });
 
         plusTwoBtn.addEventListener('click', () => {
             // cart = cart + 2;
-            cart += 2; // same as above
-            console.log(`Cart Quantity: ${cart}`);
-            cartQuantity.value = `Cart Quantity: ${cart}`;
+            // cart += 2; 
+            // console.log(`Cart Quantity: ${cart}`);
+            // cartQuantity.value = `Cart Quantity: ${cart}`;
+
+            if (cart + 2 > 10) {
+                console.log('The Cart is full');
+                alert('The Cart is full can\'t add more');
+            } else {
+                cart += 2;
+                console.log(`Cart Quantity: ${cart}`);
+                cartQuantity.value = `Cart Quantity: ${cart}`;
+            }
         });
 
         plusThreeBtn.addEventListener('click', () => {
             // cart = cart + 3;
-            cart += 3; // same as above
-            console.log(`Cart Quantity: ${cart}`);
-            cartQuantity.value = `Cart Quantity: ${cart}`;
+            // cart += 3; 
+            // console.log(`Cart Quantity: ${cart}`);
+            // cartQuantity.value = `Cart Quantity: ${cart}`;
+
+            if (cart + 3 > 10) {
+                console.log('The Cart is full');
+                alert('The Cart is full can\'t add more');
+            } else {
+                cart += 3;
+                console.log(`Cart Quantity: ${cart}`);
+                cartQuantity.value = `Cart Quantity: ${cart}`;
+            }
         });
 
         plusFourBtn.addEventListener('click', () => {
-            cart += 4;
-            console.log(`Cart Quantity: ${cart}`);
-            cartQuantity.value = `Cart Quantity: ${cart}`;
+            // cart += 4;
+            // console.log(`Cart Quantity: ${cart}`);
+            // cartQuantity.value = `Cart Quantity: ${cart}`;
+
+            if (cart + 4 > 10) {
+                console.log('The Cart is full');
+                alert('The Cart is full can\'t add more');
+            } else {
+                cart += 4;
+                console.log(`Cart Quantity: ${cart}`);
+                cartQuantity.value = `Cart Quantity: ${cart}`;
+            }
         });
 
         plusFiveBtn.addEventListener('click', () => {
-            cart += 5;
-            console.log(`Cart Quantity: ${cart}`);
-            cartQuantity.value = `Cart Quantity: ${cart}`;
+            // cart += 5;
+            // console.log(`Cart Quantity: ${cart}`);
+            // cartQuantity.value = `Cart Quantity: ${cart}`;
+
+            if (cart + 5 > 10) {
+                console.log('The Cart is full');
+                alert('The Cart is full can\'t add more');
+            } else {
+                cart += 5;
+                console.log(`Cart Quantity: ${cart}`);
+                cartQuantity.value = `Cart Quantity: ${cart}`;
+            }
         });
 
 
         minusTwoBtn.addEventListener('click', () => {
-            cart -= 2;
-            console.log(`Cart Quantity: ${cart}`);
-            cartQuantity.value = `Cart Quantity: ${cart}`;
+            // cart -= 2;
+            // console.log(`Cart Quantity: ${cart}`);
+            // cartQuantity.value = `Cart Quantity: ${cart}`;
+
+            if (cart - 2 < 0) {
+                console.log('Not enough items in the cart');
+                alert('Not enough items in  the cart');
+            } else {
+                cart -= 2;
+                console.log(`Cart Quantity: ${cart}`);
+                cartQuantity.value = `Cart Quantity: ${cart}`;
+            }
         });
 
         minusThreeBtn.addEventListener('click', () => {
-            cart -= 3;
-            console.log(`Cart Quantity: ${cart}`);
-            cartQuantity.value = `Cart Quantity: ${cart}`;
+            // cart -= 3;
+            // console.log(`Cart Quantity: ${cart}`);
+            // cartQuantity.value = `Cart Quantity: ${cart}`;
+
+            if (cart - 3 < 0) {
+                console.log('Not enough items in the cart');
+                alert('Not enough items in  the cart');
+            } else {
+                cart -= 3;
+                console.log(`Cart Quantity: ${cart}`);
+                cartQuantity.value = `Cart Quantity: ${cart}`;
+            }
         });
 
 
         removeBtn.addEventListener('click', () => {
             // cart = cart - 1;
             // cart -= 1; same as above and below
-            cart--; // same as above
-            console.log(`Cart Quantity: ${cart}`);
-            cartQuantity.value = `Cart Quantity: ${cart}`;
+            // cart--; 
+            // console.log(`Cart Quantity: ${cart}`);
+            // cartQuantity.value = `Cart Quantity: ${cart}`;
+
+            if (cart - 1 < 0) {
+                console.log('Not enough items in the cart');
+                alert('Not enough items in  the cart');
+            } else {
+                cart -= 1;
+                console.log(`Cart Quantity: ${cart}`);
+                cartQuantity.value = `Cart Quantity: ${cart}`;
+            }
         });
 
         resetBtn.addEventListener('click', () => {
@@ -121,6 +196,7 @@
             console.log(`Cart Quantity: ${cart}`);
             cartQuantity.value = 'Cart is reset.';
         });
-    </script> 
+    </script>
 </body>
+
 </html>

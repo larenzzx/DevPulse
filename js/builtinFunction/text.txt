@@ -1,0 +1,7 @@
+These are built in js function to remember
+
+- `${variableName} -> will get the value of the variable together with a string value without using concatenation
+
+- eval(variableName) -> if the value of the variable is string and it has math on it, it will convert it into math
+
+- Math.random() -> a function that will randomize number from 0 - 1

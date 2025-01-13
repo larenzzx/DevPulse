@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolean Exercise</title>
+</head>
+<body>
+    
+    <script>
+
+        // 6a
+        // 6b -try changing the value of hour if the message will change
+        // 6c - create variable called 'name' and store your name then display it with the message
+        
+        let hour = 24;
+        const name = "Mark"
+
+        if(hour >= 6 && hour < 12) {
+            console.log(`Good morning ${name}!`);
+        } else if (hour >= 13 && hour < 17) {
+            console.log(`Good afternoon ${name}!`);
+        } else {
+            console.log(`Good night ${name}!`);
+        }
+
+        // 6d - if the 6 years old below or 65 years old above - Discount, else no discount.
+        // 6e - the discount is only available if it is not holiday and meets the age requirements.
+        const age = 69;
+
+        // 6d solution
+        age <= 6 || age >= 65 ? console.log('Discount') : console.log('No discount');
+
+        // 6e solutions
+        isHoliday = true;
+
+        if (age <= 6 || age >= 65 && isHoliday === false) {
+            console.log('Discount');
+        } else {
+            console.log('No discount');
+        }
+
+        // or 
+        age <= 6 || age >= 65 && isHoliday === false ? console.log('Discount') : console.log('No discount');
+
+
+
+    </script>
+</body>
+</html>

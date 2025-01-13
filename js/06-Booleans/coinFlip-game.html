@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Coin Flip Game</title>
+</head>
+<body>
+
+    
+    <script>
+
+        number = Math.random();
+
+        // 6f - if the number is less than 0.5 it will display heads, otherwise tails
+        // solution
+        // if (number < 0.5) {
+        //     console.log('heads');
+        // } else {
+        //     console.log('tails')
+        // }
+        // using ternary
+        number < 0.5 ? console.log('heads') : console.log('tails');
+
+        // 6h - instead of displaying heads or tails in the console, save the result in a variable called 'result'
+
+        // 6i - let's say we're trying to guest the result. Create a variable called 'guess' and save your guess ('heads' or 'tails'). If your guess matches the result, display 'You win', otherwise 'You lose'
+
+        // solution for 6h and 6i
+        // let result = ''
+
+        // if (number < 0.5) {
+        //     result = 'heads';
+            
+        // } else {
+        //     result = 'tails';
+        // }
+
+        // const guess = 'heads'
+
+        // if (guess === result) {
+        //     console.log('You win!');
+        // } else {
+        //     console.log('You lose');
+        // }
+
+        
+        // 6j - instead of using regular if else, try doing it using the ternary operators
+        // solution 
+        let result = '';
+
+        number < 0.5 ? result = 'heads' : result = 'tails';
+
+        const guess = 'tails';
+        guess === result ? console.log('You win!') : console.log('You lose');
+
+    </script>
+    
+</body>
+</html>
