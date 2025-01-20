@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP CLASS</title>
+</head>
+<body>
+
+    <h1>This is the recommended OOP implementation</h1>
+    
+
+    <script>
+        // class
+        class Person {
+            constructor(firstName, lastName, birthYear) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.birthYear = new Date(birthYear);
+            }
+
+            getBirthYear() {
+                return this.birthYear.getFullYear();
+            }
+
+            getFullName() {
+                return `${this.firstName} ${this.lastName}`;
+            }
+        }
+
+        // Instantiate object
+        const person1 = new Person('Mark', 'Tabotabo', '11-15-2001');
+        console.log(person1);
+        console.log(person1.firstName);
+        console.log(person1.getBirthYear());
+        console.log(person1.getFullName());
+
+    </script>
+</body>
+</html>

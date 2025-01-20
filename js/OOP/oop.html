@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+</head>
+<body>
+    <h1>OOP</h1>
+
+    <script>
+        // constructor function
+        function Person(firstName, lastName, birthDay) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            // this.birthDay = birthDay;
+            this.birthDay = new Date(birthDay);
+
+            // this.getBirthYear = function () {
+            //     return this.birthDay.getFullYear();
+            // }
+            
+            // this.getFullName = function () {
+            //     return `${this.firstName} ${this.lastName}`;
+            // }
+        }
+        // same as above, but this is the most used
+        Person.prototype.getBirthYear = function() {
+            return this.birthDay.getFullYear();
+        }
+
+        Person.prototype.getFullName = function() {
+            return `${this.firstName} ${this.lastName}`;
+        }
+
+        // Instantiate object
+        const person1 = new Person('Mark', 'Tabotabo', '11-15-2001');
+        console.log(person1);
+        console.log(person1.lastName);
+
+        console.log(person1.getBirthYear());
+        console.log(person1.getFullName());
+    </script>
+    
+</body>
+</html>

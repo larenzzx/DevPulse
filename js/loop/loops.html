@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+
+<body>
+    <h1>Loops</h1>
+
+    <script>
+        const students = [
+            {
+                id: 1,
+                firstName: 'Mark',
+                lastName: 'Tabotabo'
+            },
+            {
+                id: 2,
+                firstName: 'Raiza',
+                lastName: 'Beligolo'
+            },
+            {
+                id: 3,
+                firstName: 'Dazai',
+                lastName: 'Naksu'
+            },
+
+        ];
+
+        // For
+        for (let i = 0; i <= 5; i++) {
+            console.log(`For loop numbers: ${i}`);
+        }
+
+        for(let i = 0; i < students.length; i++) {
+            console.log(students[i].firstName);;
+        }
+
+        // or
+        // for(let st of students) {
+        //     console.log(st.firstName);
+        // }
+
+        // while
+        let i = 0;
+        while (i < 5) {
+            console.log(`While loop numbers: ${i}`);
+            i++;
+        }
+
+
+        // forEach
+        students.forEach(st => {
+            console.log(st.lastName);
+        });
+
+        // switch statement
+        const x = 11;
+
+        const color = x > 10 ? 'red' : 'blue';
+
+        switch(color) {
+            case 'red':
+                console.log('color is red');
+                break;
+            case 'blue':
+                console.log('color is blue');
+                break;
+            default:
+                console.log('color is NOT red or blue');
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,7 +1,29 @@
 These are built in js function to remember
 
-- `${variableName} -> will get the value of the variable together with a string value without using concatenation
-
 - eval(variableName) -> if the value of the variable is string and it has math on it, it will convert it into math
 
+- `${variableName}` -> will get the value of the variable together with a string value without using concatenation
+
 - Math.random() -> a function that will randomize number from 0 - 1
+
+- const stJson = JSON.stringify(students); -> will make the array of objects to json
+
+- variable.length -> will get the length
+ex:
+for(let i = 0; i < students.length; i++) {
+            console.log(students[i].firstName);;
+        }
+- this will get all the array or object firstName
+
+- Date(variable), getFullYear();
+
+- e.preventDefault(); -> will prevent the default action
+
+- setTimeout()
+ex: if (nameInput.value === '' || emailInput.value === '') {
+        msg.classList.add('error');
+        msg.innerHTML = 'Please complete the fields';
+
+        setTimeout(() => msg.remove(), 3000);
+    }
+ -> this will remove the msg after 3secs

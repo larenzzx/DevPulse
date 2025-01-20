@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM SAMPLE</title>
+</head>
+
+<style>
+    
+    
+    .container {
+        background-color: grey;
+        display: grid;
+        padding: 2em;
+    }
+
+    .input {
+        margin-block: .5em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        background-color: black;
+        color: white;
+        width: 100%;
+        margin-top: .5em;
+        padding: .5em;
+        border-radius: .2em;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-top: .2em;
+        background-color: grey;
+        padding: .5em;
+    }
+
+    .bg-dark {
+        background-color: black;
+    }
+
+    .error {
+        background-color: red;
+        padding: .5em;
+    }
+</style>
+<body>
+
+    <form class="container" id="my-form">
+        <h1>Add User</h1>
+
+        <div class="msg"></div>
+
+        <div class="input">
+            <label for="">Name:</label>
+            <input type="text" id="name">
+        </div>
+
+        <div class="input">
+            <label for="">Email:</label>
+            <input type="email" id="email">
+        </div>
+
+        <button class="btn" type="submit">Submit</button>
+    </form>
+    
+    <!-- <ul class="items">
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+    </ul> -->
+
+    <ul id="users"></ul>
+
+
+    <script src="./dom.js"></script>
+</body>
+</html>
