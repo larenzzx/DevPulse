@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables Exercises</title>
+
+    <style>
+      .btnWrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 1em;
+        gap: 0.5em;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>Cart Quantity</p>
+
+    <div class="btnWrapper">
+      <button onclick="updateCartQuantity('show')">Show Quantity</button>
+      <button onclick="updateCartQuantity('add')">Add to Cart</button>
+      <button onclick="updateCartQuantity('+2')">+2</button>
+      <button onclick="updateCartQuantity('+3')">+3</button>
+      <button onclick="updateCartQuantity('+4')">+4</button>
+      <button onclick="updateCartQuantity('+5')">+5</button>
+
+      <button onclick="updateCartQuantity('-2')">-2</button>
+      <button onclick="updateCartQuantity('-3')">-3</button>
+
+      <button onclick="updateCartQuantity('reset')">Reset Cart</button>
+      <button onclick="updateCartQuantity('remove')">Remove</button>
+    </div>
+
+    <input class="cartQuantity" type="text" value="" style="margin-top: 1em" />
+
+    <script>
+      let cartQuantity = document.querySelector(".cartQuantity");
+
+      let cart = 0;
+
+      function updateCartQuantity(value) {
+        switch (value) {
+          case "show":
+            break;
+
+          case "add":
+            if (cart + 1 > 10) {
+              console.log("The cart is already full");
+              alert("The cart is already full");
+            } else {
+              cart += 1;
+            }
+            break;
+
+          case "+2":
+            if (cart + 2 > 10) {
+              console.log("The cart is already full");
+              alert("The cart is already full");
+            } else {
+              cart += 2;
+            }
+            break;
+
+          case "+3":
+            if (cart + 3 > 10) {
+              console.log("The cart is already full");
+              alert("The cart is already full");
+            } else {
+              cart += 3;
+            }
+            break;
+
+          case "+4":
+            if (cart + 4 > 10) {
+              console.log("The cart is already full");
+              alert("The cart is already full");
+            } else {
+              cart += 4;
+            }
+            break;
+
+          case "+5":
+            if (cart + 5 > 10) {
+              console.log("The cart is already full");
+              alert("The cart is already full");
+            } else {
+              cart += 5;
+            }
+            break;
+
+          case "-2":
+            if (cart - 2 < 0) {
+              console.log("The cart is already full");
+              alert("The cart is already full");
+            } else {
+              cart -= 2;
+            }
+            break;
+
+          case "-3":
+            if (cart - 3 < 0) {
+              console.log("The cart is already full");
+              alert("The cart is already full");
+            } else {
+              cart -= 3;
+            }
+            break;
+
+          case "remove":
+            if (cart - 1 < 0) {
+              console.log("The cart is already full");
+              alert("The cart is already full");
+            } else {
+              cart -= 1;
+            }
+            break;
+
+          case "reset":
+            cart = 0;
+            break;
+        }
+        cartQuantity.value = cart;
+        console.log(cart);
+      }
+    </script>
+  </body>
+</html>

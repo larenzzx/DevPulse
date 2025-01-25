@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+
+    <p>Calculator</p>
+
+    <p>
+        <button onclick="updateCalculation('1')">1</button>
+        <button onclick="updateCalculation('2')">2</button>
+        <button onclick="updateCalculation('3')">3</button>
+        <button onclick="updateCalculation('+')">+</button>
+    </p>
+
+    <p>
+        <button onclick="updateCalculation('4')">4</button>
+        <button onclick="updateCalculation('5')">5</button>
+        <button onclick="updateCalculation('6')">6</button>
+        <button onclick="updateCalculation('-')">-</button>
+    </p>
+
+    <p>
+        <button onclick="updateCalculation('7')">7</button>
+        <button onclick="updateCalculation('8')">8</button>
+        <button onclick="updateCalculation('9')">9</button>
+        <button onclick="updateCalculation('*')">*</button>
+    </p>
+
+    <p>
+        <button onclick="updateCalculation('0')">0</button>
+        <button onclick="updateCalculation('.')">.</button>
+        <button onclick="updateCalculation('=')">=</button>
+        <button onclick="updateCalculation('/')">/</button>
+    </p>
+
+    <p>
+        <button onclick="updateCalculation('Clear')">Clear</button>
+    </p>
+
+    <p>open terminal</p>
+
+
+    <script>
+        let calculation = '';
+
+        const operations = {
+            '1': () => calculation += '1',
+            '2': () => calculation += '2',
+            '3': () => calculation += '3',
+            '4': () => calculation += '4',
+            '5': () => calculation += '5',
+            '6': () => calculation += '6',
+            '7': () => calculation += '7',
+            '8': () => calculation += '8',
+            '9': () => calculation += '9',
+            '0': () => calculation += '0',
+            '.': () => calculation += '.',
+            '+': () => calculation += ' + ',
+            '-': () => calculation += ' - ',
+            '*': () => calculation += ' * ',
+            '/': () => calculation += ' / ',
+            'Clear': () => calculation = '',
+            '=': () => {
+                try {
+                    calculation = eval(calculation);
+                } catch {
+                    calculation = 'Error';
+                }
+            }
+        };
+
+        function updateCalculation(value) {
+
+            // using map/object
+            // Check if the value has a corresponding handler
+            if (operations[value]) {
+                operations[value](); // Execute the appropriate function
+            } else {
+                console.error(`Unhandled input: ${value}`);
+            }
+            console.log(calculation);
+
+            // if else method
+            // if (value === 1) {
+            //     calculation += '1'
+            // } else if (value === 2) {
+            //     calculation += '2'
+            // } else if (value === 3) {
+            //     calculation += '3'
+            // } else if (value === 4) {
+            //     calculation += '4'
+            // } else if (value === 5) {
+            //     calculation += '5'
+            // } else if (value === 6) {
+            //     calculation += '6'
+            // } else if (value === 7) {
+            //     calculation += '7'
+            // } else if (value === 8) {
+            //     calculation += '8'
+            // } else if (value === 9) {
+            //     calculation += '9'
+            // } 
+            // console.log(calculation);
+            
+
+
+            // switch case method
+            // switch(value) {
+            //     case '1': 
+            //         calculation += '1'
+            //         break;
+            //     case '2': 
+            //         calculation += '2'
+            //         break;
+            //     case '3': 
+            //         calculation += '3'
+            //         break;
+            //     case '4': 
+            //         calculation += '4'
+            //         break;
+            //     case '5': 
+            //         calculation += '5'
+            //         break;
+            //     case '6': 
+            //         calculation += '6'
+            //         break;
+            //     case '7': 
+            //         calculation += '7'
+            //         break;
+            //     case '8': 
+            //         calculation += '8'
+            //         break;
+            //     case '9': 
+            //         calculation += '9'
+            //         break;
+            //     case '+': 
+            //         calculation += ' + '
+            //         break;
+            //     case '-': 
+            //         calculation += ' - '
+            //         break;
+            //     case '*': 
+            //         calculation += ' * '
+            //         break;
+            //     case '/': 
+            //         calculation += ' / '
+            //         break;
+            //     case 'Clear': 
+            //         calculation = ''
+            //         break;
+            //     case '=': 
+            //         calculation = eval(calculation)
+            //         break;
+            // }
+            // console.log(calculation);
+        }
+    </script>
+</body>
+
+</html>

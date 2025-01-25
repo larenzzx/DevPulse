@@ -1,31 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Functions</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <script>
-        function greet() {
-            console.log("Hello, World!");
+      function greet() {
+        console.log("Hello, World!");
+      }
+      greet();
+
+      function greetUser(name) {
+        // if (!name) {
+        //     console.log("Please provide a name.");
+        // } else {
+        //     console.log(`Hello, ${name}!`);
+        // }
+
+        !name
+          ? console.log("Please provide a name.")
+          : console.log(`Hello, ${name}!`);
+      }
+      greetUser("John");
+      greetUser();
+
+      // funtion to convert celcius to fahrenheit
+      function convertToFahrenheit(celcius) {
+        return (celcius * 9) / 5 + 32;
+      }
+      console.log(convertToFahrenheit(25));
+
+      // function to convert fahrenheit to celsius
+      function convertToCelcius(fahrenheit) {
+        return ((fahrenheit - 32) * 5) / 9;
+      }
+      console.log(convertToCelcius(77));
+
+      // for converting temp
+      function convertTemperature(degrees, unit) {
+        if (unit === "C") {
+        //   unit = "F";
+          //   degrees = convertToFahrenheit(degrees);
+          //   return `${degrees}${unit}`;
+          const result = convertToFahrenheit(degrees);
+          return `${result}F`
+
+        } else if (unit === "F") {
+        //   unit = "C";
+        //   degrees = convertToCelcius(degrees);
+        //   return `${degrees}${unit}`;
+
+          const result = convertToCelcius(degrees);
+          return `${result}C`
         }
-        greet();
+      }
+      console.log(convertTemperature(25, "C"));
+      console.log(convertTemperature(77, "F"));
 
-        function greetUser(name) {
-
-            if (!name) {
-                console.log("Please provide a name.");
-            } else {
-                console.log(`Hello, ${name}!`);
-            }
-
+      // converting lengths
+      function convertLength(length, from, to) {
+        if (from !== "miles" && from !== "km" && from !== "ft") {
+          return `Invalid unit: ${from}`;
+        } else if (to !== "miles" && to !== "km" && to !== "ft") {
+          return `Invalid unit: ${to}`;
         }
-        greetUser("John");
-        greetUser();
 
+        if (from === "miles" && to === "km") {
+          // return (length * 1.6) + ' km'
+          return `${length * 1.6} ${to}`;
+
+        } else if (from === "km" && to === "miles") {
+          // return (length / 1.6) + ' miles'
+          return `${length / 1.6} ${to}`;
+
+        } else if (from === "miles" && to === "ft") {
+          // return (length * 5280) + ' ft'
+          return `${length * 5280} ${to}`;
+
+        } else if (from === "km" && to === "ft") {
+          // return (length * 3281) + ' ft'
+          return `${length * 3281} ${to}`;
+          
+        } else if (from === to) {
+          // return length + ' ' + to
+          return `${length} ${to}`;
+        }
+      }
+      console.log(convertLength(80, "miles", "km"));
+      console.log(convertLength(32, "km", "miles"));
+      console.log(convertLength(50, "km", "km"));
+      console.log(convertLength(5, "miles", "ft"));
+      console.log(convertLength(5, "km", "ft"));
+      console.log(convertLength(5, "ft", "ft"));
+      console.log(convertLength(5, "ft", "lbs"));
+      console.log(convertLength(5, "lbs", "lbs"));
     </script>
-    
-</body>
+  </body>
 </html>
