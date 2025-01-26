@@ -12,21 +12,42 @@
     <button onclick="resetGame()">Reset</button>
 
     <script>
-      const score = {
-        wins: 0,
-        losses: 0,
-        ties: 0,
-      };
+      // const score = {
+      //   wins: 0,
+      //   losses: 0,
+      //   ties: 0,
+      // };
 
       function resetGame() {
         score.wins = 0;
         score.losses = 0;
         score.ties = 0;
+        localStorage.removeItem('score');
 
         alert(
           `The score has been reset. Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`
         );
       }
+
+      // console.log(localStorage.getItem('message'));
+
+      // using default operator instead of if
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+      
+      // if null ang localStorage, the code will run
+      /*
+      if (!score) {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0
+        };
+      } */
+
 
       function playGame(playerMove) {
         const computerMove = pickComputerMove();
@@ -43,7 +64,7 @@
           // }
 
           computerMove === "Rock" ? result = "Tie." : 
-          computerMove === "Paper" ? result = "You Lose." : 
+          computerMove === "Paper" ? result = "You lose." : 
           result = "You win!";
 
         } else if (playerMove === "Paper") {
@@ -62,6 +83,11 @@
         result === "You win!" ? score.wins++ : 
         result === "You lose." ? score.losses++ : 
         score.ties++;
+
+
+        // setting up a localstorage
+        // localStorage.setItem('message', 'helloo');
+        localStorage.setItem('score', JSON.stringify(score));
 
         alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
 Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`);

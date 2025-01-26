@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONVERTING TO JSON SAMPLE</title>
 </head>
-<body>
-
-    <h1>Function to convert arrays to json</h1>
-    
+<body>    
 
     <script>
+        /* JSON (JavaScript Object Notation)
+            - similar to JavaScript object
+            - but has less features
+            - syntax of json is to always use double quotes
+            - you can't put function inside the json
+
+          We use JSON
+            - when we send data between computers
+            - when we store data
+        */
         const students = [
             {
                 id: 1,
@@ -30,8 +37,16 @@
 
         ];
 
+        // built in objects of JSON
+
+        // use to convert object into json
         const stJson = JSON.stringify(students);
         console.log(stJson);
+
+        // used to convert json back to object
+        const jsonSt = JSON.parse(stJson);
+        console.log(jsonSt);
+        
 
     </script>
 </body>

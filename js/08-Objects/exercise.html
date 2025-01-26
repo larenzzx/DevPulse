@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object exercise</title>
+</head>
+<body>
+
+    <script>
+
+        const basketballProduct = {
+            name: 'basketball',
+            price: 2095,
+            // ['delivery-time']: '3 days'
+        };
+
+        console.log(basketballProduct);
+
+        basketballProduct.price = 2595;
+        console.log(basketballProduct.price);
+
+        basketballProduct['delivery-time'] = '3 days';
+        console.log(basketballProduct);
+
+
+
+        // product1
+        const arnisProduct = {
+            name: 'arnis',
+            price: 100
+        }
+
+        // product2
+        const volleyballProduct = {
+            name: 'volleyball',
+            price: 500
+        }
+
+        function comparePrice(product1, product2) {
+
+            // if (product1.price < product2.price) {
+            //     return console.log(product1);
+            // } else if (product2.price < product1.price) {
+            //     return console.log(product2);
+            // }
+
+            if (product1.name === product2.name || product1.price === product2.price) {
+                console.log(true);
+            } else {
+                console.log(false);
+                if (product1.price < product2.price) {
+                    console.log(product1);
+                } else if (product2.price < product1.price) {
+                    console.log(product2);
+                }
+            }
+            
+        }
+
+        comparePrice(arnisProduct, volleyballProduct)
+
+
+        const message = 'Good Morning';
+        console.log(message.toLowerCase());
+        
+        const message2 = 'test'
+        console.log(message2.repeat(2));
+    </script>
+    
+</body>
+</html>

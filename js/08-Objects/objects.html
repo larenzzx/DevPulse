@@ -8,6 +8,7 @@
 <body>
     
     <script>
+        /*
         const product = {
             name: 'shoes',
             price: 500
@@ -25,6 +26,69 @@
 
         delete product.house;
         console.log(product)
+        */
+
+        const product2  = {
+            name: 'shirt',
+            ['delivery-time']: '1 day', //bracket notation is used when the properties don't work with dot notation
+            rating: {
+                stars: 4.5,
+                count: 87
+            }, // nested object
+
+            fun: function function1() {
+                console.log('function inside the object')
+            }
+        };
+
+        console.table(product2);
+        console.log(product2.name);
+        console.log(product2['name']);
+        //console.log(product.delivery-time); //this will give error, squarebrackets useful if there's a specialcharacters in the property
+        console.log(product2['delivery-time']);
+        console.log(product2.rating.stars); //calling a nested object
+        product2.fun(); // calling a function inside the object
+        
+
+        console.log('hello'.length);
+        console.log('hello'.toUpperCase());
+
+        const object1 = {
+            message: 'hello'
+        };
+
+        const object2 = object1
+
+        object1.message = 'hi'
+        console.log(object1.message);
+
+
+        // destructing/shorthand for object
+        const object3 = {
+            message: 'good job',
+            price: 699
+        };
+
+        // const message = object3.message;
+        // console.log(message);
+        const { message, price } = object3;
+        console.log(message);
+        console.log(price);
+
+        //shorthand for calling an function inside the object
+        const object4 = {
+            // method: function function1() {
+            //     console.log('method');
+            // }
+
+            // same as the above
+            method() {
+                console.log('method');
+            }
+        }
+        console.log(object4);
+        object4.method();
+
     </script>
 </body>
 </html>

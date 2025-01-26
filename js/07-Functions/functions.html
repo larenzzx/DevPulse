@@ -96,6 +96,14 @@
       console.log(convertLength(5, "ft", "ft"));
       console.log(convertLength(5, "ft", "lbs"));
       console.log(convertLength(5, "lbs", "lbs"));
+
+      function func(parameter = 'default') {
+        console.log(parameter);
+      }
+
+      func(); // -> 'default'
+      func(undefined); // -> 'default'
+      func(null); // -> null
     </script>
   </body>
 </html>

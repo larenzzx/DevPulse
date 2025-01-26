@@ -1,4 +1,5 @@
-These are built in js function to remember
+These are built in js methods to remember
+- object + function = method
 
 (typeof 'hello') - this will determine what datatype
 
@@ -29,3 +30,28 @@ ex: if (nameInput.value === '' || emailInput.value === '') {
         setTimeout(() => msg.remove(), 3000);
     }
  -> this will remove the msg after 3secs
+
+
+- JSON.stringify() -> converts the object to JSON
+- JSON.parse() -> converts the JSON back to object
+
+- localStorage only supports string
+- localStorage.setItem();
+ -> localStorage.setItem('message', 'helloo');
+ -> localStorage.setItem('score', JSON.stringify(score))
+
+- localStorage.getItem();
+ - > localStorage.getItem('message')
+ - > const score = JSON.parse(localStorage.getItem('score'))
+
+- localStorage.removeItem();
+ -> localStorage.removeItem('score')
+
+- .length
+ -> console.log('hello'.length);
+
+- .toUpperCase(), toLowerCase()
+ -> console.log('hello'.toUpperCase());
+
+- .repeat(2)
+ -> can repeat string many times console.log(message2.repeat(2));
