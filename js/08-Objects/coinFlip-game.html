@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Coin Flip Game</title>
+  </head>
+  <body>
+    <button onclick="playGame('heads')">heads</button>
+    <button onclick="playGame('tails')">tails</button>
+    <button
+      onclick="
+        alert(`wins: ${score.wins}. losses: ${score.losses}.`);
+        console.log(`wins: ${score.wins}. losses: ${score.losses}.`);
+    "
+    >
+      show score
+    </button>
+    <button onclick="resetScore()">reset</button>
+
+    <script>
+      function resetScore() {
+        score.wins = 0;
+        score.losses = 0;
+        localStorage.removeItem("score");
+        console.log(`wins: ${score.wins}. losses: ${score.losses}.`);
+        alert(`wins: ${score.wins}. losses: ${score.losses}.`);
+      }
+
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+
+      function playGame(guess) {
+        let number = Math.random();
+
+        console.log(number);
+
+        let result = "";
+
+        number < 0.5 ? (result = "heads") : (result = "tails");
+
+        if (guess === result) {
+          console.log("You win!");
+          score.wins++;
+          console.log(`wins: ${score.wins}. losses: ${score.losses}.`)
+          alert(`Your guess is ${guess}. The result is ${result}. You win!
+wins: ${score.wins} losses: ${score.losses}`);
+        } else {
+          console.log("You lose.");
+          score.losses++;
+          console.log(`wins: ${score.wins}. losses: ${score.losses}.`)
+          alert(`Your guess is ${guess}. The result is ${result}. You lose.
+wins: ${score.wins} losses: ${score.losses}`);
+        }
+
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+    </script>
+  </body>
+</html>
