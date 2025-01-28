@@ -77,6 +77,8 @@
         const input = document.querySelector('input');
         let showResult = document.querySelector('.show');
 
+        // textContent and innerHTML can be used for displaying text inside the element
+
         // subscribe btn
         sub.addEventListener('click', () => {
             if (sub.textContent === 'Subscribe') {
@@ -94,18 +96,26 @@
 
         function calculate(e) {
             e.preventDefault();
+            const amount = '40';
+            const shipping = Number(amount);
+            // console.log(shipping);
 
 
-            if (input.value <= '40' ) {
+            if (input.value < shipping && input.value > 0) {
                 let value = input.value;
                 let result = Number(value);
-                result = result + 10;
+                result += 10;
                 console.log(result + 'php');
                 showResult.textContent = result + 'php';
-            } else {
+
+            } else if (input.value >= shipping) {
                 value = input.value;
                 console.log(value + 'php');
-                showResult.textContent = value + 'php';
+                showResult.innerHTML = value + 'php';
+            } else {
+                showResult.innerHTML = 'The order is empty';
+
+                setTimeout(() => (showResult.innerHTML = ''), 3000);
             }
             
         };

@@ -58,6 +58,7 @@ ex: if (nameInput.value === '' || emailInput.value === '') {
 
  - setTimeout()
   -> setTimeout(() => msg.remove(), 3000); this can remove elements
+  -> setTimeout(() => (showResult.innerHTML = ''), 3000);
 
 - parseInt() or parseFloat()
  -> converts a string into an integer or floating point
