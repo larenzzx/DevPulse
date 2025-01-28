@@ -55,3 +55,15 @@ ex: if (nameInput.value === '' || emailInput.value === '') {
 
 - .repeat(2)
  -> can repeat string many times console.log(message2.repeat(2));
+
+ - setTimeout()
+  -> setTimeout(() => msg.remove(), 3000); this can remove elements
+
+- parseInt() or parseFloat()
+ -> converts a string into an integer or floating point
+ -> let num = parseInt(variableThatContainString);
+ -> let num = parseFloat(variableThatContainString);
+
+- Number()
+ -> convert string into both number and float
+ -> let num = Number(variableThatContainString);

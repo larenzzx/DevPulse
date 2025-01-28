@@ -1,17 +1,23 @@
 /* === selecting an element ====*/
 
-// single element
+/*single element*/
 // console.log(document.getElementById('my-form'));
 // console.log(document.querySelector('h1')); this get target any element, class, id
 
-// multiple element
+/*multiple element*/
 // console.log(document.querySelectorAll('.items'));
 
 // const items = document.querySelectorAll('.item');
 // items.forEach((item) => console.log(item));
 
+// items.forEach((item) => {
+//     console.log(item);
+// });
 
 /* ==== Manipulating the dom ==== */
+// document.body.innerHTML = 'hello';
+// document.body.innerHTML = '<button>Hello</button>';
+// document.title = 'Page Title change';
 // const ul = document.querySelector('.items');
 // ul.lastElementChild.remove();
 // ul.firstElementChild.textContent = 'Hello';
@@ -20,7 +26,7 @@
 
 
 /* Events */
-// click, mouseover, mouseout, submit
+// click, mouseover, mouseout, submit and many move
 // const btn = document.querySelector('.btn');
 
 // btn.addEventListener('click', (e) => {

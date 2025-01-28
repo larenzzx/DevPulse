@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM EXERCISE</title>
+</head>
+
+<style>
+    button {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        
+    }
+
+    .sub {
+        padding-block: .5em;
+        padding-inline: 1em;
+        background-color: blue;
+        color: white;
+        border-radius: 2em;
+    }
+    
+    .active {
+        background-color: gainsboro;
+        color: black;
+    }
+
+    .cal {
+        background-color: green;
+        color: white;
+        padding-block: .5em;
+        padding-inline: .8em;
+        transition: .3s all ease;
+
+        &:hover {
+            background-color: black;
+        }
+    }
+
+    input {
+        padding: .4em;
+    }
+
+</style>
+
+
+<body>
+
+    <div>
+        <p>YouTube Subscribe Button</p>
+        <button class="sub">Subscribe</button>
+    </div>
+
+    <div style="margin-top: 4em;">
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under 40php = +10php shipping</p>
+        <p>Orders over 40php = FREE shipping</p>
+        <form>
+            <input type="number" placeholder="Cost of order">
+            <button type="submit" class="cal">Calculate</button>
+            <p class="show"></p>
+        </form>
+    </div>
+
+
+    <div style="margin-top: 4em;">
+        <p>Rock Paper Scissors Game</p>
+        <a href="simple_rock-paper-scissors.html">Click here</a>
+    </div>
+    
+
+    <script>
+        const sub = document.querySelector('.sub');
+        const cal = document.querySelector('.cal');
+        const input = document.querySelector('input');
+        let showResult = document.querySelector('.show');
+
+        // subscribe btn
+        sub.addEventListener('click', () => {
+            if (sub.textContent === 'Subscribe') {
+                sub.textContent = 'Subscribed';
+                sub.classList.add('active');
+            } else {
+                sub.textContent = 'Subscribe';
+                sub.classList.remove('active');
+            }
+        });
+
+        
+        // calculate shipping
+        cal.addEventListener('click', calculate);
+
+        function calculate(e) {
+            e.preventDefault();
+
+
+            if (input.value <= '40' ) {
+                let value = input.value;
+                let result = Number(value);
+                result = result + 10;
+                console.log(result + 'php');
+                showResult.textContent = result + 'php';
+            } else {
+                value = input.value;
+                console.log(value + 'php');
+                showResult.textContent = value + 'php';
+            }
+            
+        };
+
+    </script>
+</body>
+</html>
