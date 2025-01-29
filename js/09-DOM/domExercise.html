@@ -79,8 +79,10 @@
 
         // textContent and innerHTML can be used for displaying text inside the element
 
-        // subscribe btn
+        /*subscribe btn*/
+        // we can also make a function version for this to put on the button inside the onclick=""
         sub.addEventListener('click', () => {
+            // or sub.innerHTML can get some spaces or innerText wil not get the extra spaces
             if (sub.textContent === 'Subscribe') {
                 sub.textContent = 'Subscribed';
                 sub.classList.add('active');
@@ -99,9 +101,11 @@
             const amount = '40';
             const shipping = Number(amount);
             // console.log(shipping);
+            // value = Number(input.value);  we can do this to make the code shorter. we can directly use this in the statement without making a variable and convert it to number again like the above. we can simply delete it and it will already work if we use a number on the if else
 
 
             if (input.value < shipping && input.value > 0) {
+                // we can also asign the input.value outside the if else. its much more cleaner if we assign it outside. and we can automatically convert it into number
                 let value = input.value;
                 let result = Number(value);
                 result += 10;
