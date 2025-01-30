@@ -6,19 +6,38 @@
     <title>Simple Rock Paper Scissors Game</title>
   </head>
   <body>
+    <p>Rock Paper Scissors Game</p>
     <button onclick="playGame('Rock')">Rock</button>
     <button onclick="playGame('Paper')">Paper</button>
     <button onclick="playGame('Scissors')">Scissors</button>
-    <button onclick="resetGame()">Reset</button>
+    <p class="result"></p>
+    <p class="move"></p>
+    <p class="score"></p>
+    <button onclick="showScore()">Show Score</button>
+    <button onclick="resetGame()">Reset Score</button>
 
-    <a href="domExercise.html" style="display: block; margin-top: 5em;">Calculating Shipping Fee </a>
+    <a href="domExercise.html" style="display: block; margin-top: 5em"
+      >Calculating Shipping Fee
+    </a>
 
     <script>
-      // const score = {
+      // let score = {
       //   wins: 0,
       //   losses: 0,
       //   ties: 0,
       // };
+
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+
+      function showScore() {
+        document.querySelector(
+          ".score"
+        ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+      }
 
       function resetGame() {
         score.wins = 0;
@@ -26,86 +45,80 @@
         score.ties = 0;
         localStorage.removeItem('score');
 
-        alert(
-          `The score has been reset. Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`
-        );
+        document.querySelector(".result").innerHTML = "";
+        document.querySelector(".move").innerHTML = "";
+        document.querySelector(
+          ".score"
+        ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
       }
-
-      // console.log(localStorage.getItem('message'));
-
-      // using default operator instead of if
-      let score = JSON.parse(localStorage.getItem('score')) || {
-        wins: 0,
-        losses: 0,
-        ties: 0
-      };
-      
-      // if null ang localStorage, the code will run
-      /*
-      if (!score) {
-        score = {
-          wins: 0,
-          losses: 0,
-          ties: 0
-        };
-      } */
-
 
       function playGame(playerMove) {
         const computerMove = pickComputerMove();
-
         let result = "";
 
         if (playerMove === "Rock") {
-          // if (computerMove === 'Rock') {
-          //     result = 'Tie.';
-          // } else if (computerMove === 'Paper') {
-          //     result = 'You Lose.';
-          // } else if (computerMove === 'Scissors') {
-          //     result = 'You win!';
-          // }
-
-          computerMove === "Rock" ? result = "Tie." : 
-          computerMove === "Paper" ? result = "You lose." : 
-          result = "You win!";
-
+          if (computerMove === "Rock") {
+            result = "Tie.";
+          } else if (computerMove === "Paper") {
+            result = "You Lose.";
+          } else if (computerMove === "Scissors") {
+            result = "You Win!";
+          }
         } else if (playerMove === "Paper") {
-
-          computerMove === "Rock" ? result = "You win!" : 
-          computerMove === "Paper" ? result = "Tie" : 
-          result = "You lose.";
-
+          if (computerMove === "Rock") {
+            result = "You Win!";
+          } else if (computerMove === "Paper") {
+            result = "Tie.";
+          } else if (computerMove === "Scissors") {
+            result = "You Lose.";
+          }
         } else if (playerMove === "Scissors") {
-
-          computerMove === "Rock" ? result = "You lose." : 
-          computerMove === "Paper" ? result = "You win!" : 
-          result = "Tie.";
+          if (computerMove === "Rock") {
+            result = "You Lose.";
+          } else if (computerMove === "Paper") {
+            result = "You Win!";
+          } else if (computerMove === "Scissors") {
+            result = "Tie.";
+          }
         }
 
-        result === "You win!" ? score.wins++ : 
-        result === "You lose." ? score.losses++ : 
-        score.ties++;
+        if (result === "You Win!") {
+          score.wins++;
+        } else if (result === "You Lose.") {
+          score.losses++;
+        } else if (result === "Tie.") {
+          score.ties++;
+        }
 
-
-        // setting up a localstorage
-        // localStorage.setItem('message', 'helloo');
         localStorage.setItem('score', JSON.stringify(score));
 
-        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`);
+        //         alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+        // Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+        document.querySelector(".result").innerHTML = result;
+        document.querySelector(
+          ".move"
+        ).innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+        document.querySelector(
+          ".score"
+        ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
       }
 
+      function matchResult() {}
+
       function pickComputerMove() {
-        const randomNumber = Math.random();
-
         let computerMove = "";
+        let number = Math.random();
 
-        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+        console.log(number);
+        if (number >= 0 && number <= 1 / 3) {
           computerMove = "Rock";
-        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          // console.log(computerMove);
+        } else if (number >= 1 / 3 && number <= 2 / 3) {
           computerMove = "Paper";
-        } else if (randomNumber > 2 / 3 && randomNumber < 1) {
+          // console.log(computerMove);
+        } else {
           computerMove = "Scissors";
+          // console.log(computerMove);
         }
 
         return computerMove;

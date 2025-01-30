@@ -25,6 +25,12 @@
 // ul.lastElementChild.innerHTML = '<h1>Hehehe</h1>';
 
 
+/* Event Listeners*/
+// onclick, 
+// onkeydown-this is key press
+// onscroll - scrolling
+// onmouseenter, onmouseleave and many more 
+
 /* Events */
 // click, mouseover, mouseout, submit and many move
 // const btn = document.querySelector('.btn');
