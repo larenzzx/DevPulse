@@ -7,13 +7,13 @@
   </head>
   <body>
     <p>Rock Paper Scissors Game</p>
-    <button onclick="playGame('Rock')">Rock</button>
-    <button onclick="playGame('Paper')">Paper</button>
-    <button onclick="playGame('Scissors')">Scissors</button>
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
     <p class="result"></p>
     <p class="move"></p>
     <p class="score"></p>
-    <button onclick="showScore()">Show Score</button>
+    <button onclick="scoreResult()">Show Score</button>
     <button onclick="resetGame()">Reset Score</button>
 
     <a href="domExercise.html" style="display: block; margin-top: 5em"
@@ -21,23 +21,16 @@
     </a>
 
     <script>
+
+      const gameResult = document.querySelector('.result');
+      const gameMove = document.querySelector('.move');
+      const gameScore = document.querySelector('.score');
+
       // let score = {
       //   wins: 0,
       //   losses: 0,
-      //   ties: 0,
+      //   ties: 0
       // };
-
-      let score = JSON.parse(localStorage.getItem('score')) || {
-        wins: 0,
-        losses: 0,
-        ties: 0
-      };
-
-      function showScore() {
-        document.querySelector(
-          ".score"
-        ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-      }
 
       function resetGame() {
         score.wins = 0;
@@ -45,84 +38,85 @@
         score.ties = 0;
         localStorage.removeItem('score');
 
-        document.querySelector(".result").innerHTML = "";
-        document.querySelector(".move").innerHTML = "";
-        document.querySelector(
-          ".score"
-        ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-      }
+        gameResult.innerHTML = '';
+        gameMove.innerHTML = '';
+
+        scoreResult();
+      };
+
+      score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+
+      
 
       function playGame(playerMove) {
         const computerMove = pickComputerMove();
-        let result = "";
 
-        if (playerMove === "Rock") {
-          if (computerMove === "Rock") {
-            result = "Tie.";
-          } else if (computerMove === "Paper") {
-            result = "You Lose.";
-          } else if (computerMove === "Scissors") {
-            result = "You Win!";
+        let result = '';
+
+        if (playerMove === 'rock') {
+          if (computerMove === 'rock') {
+            result = 'Tie.';
+          } else if (computerMove === 'paper') {
+            result = 'You lose.';
+          } else if (computerMove === 'scissors') {
+            result = 'You win!';
           }
-        } else if (playerMove === "Paper") {
-          if (computerMove === "Rock") {
-            result = "You Win!";
-          } else if (computerMove === "Paper") {
-            result = "Tie.";
-          } else if (computerMove === "Scissors") {
-            result = "You Lose.";
+
+        } else if (playerMove === 'paper') {
+          if (computerMove === 'rock') {
+            result = 'You win!';
+          } else if (computerMove === 'paper') {
+            result = 'Tie.';
+          } else if (computerMove === 'scissors') {
+            result = 'You lose.';
           }
-        } else if (playerMove === "Scissors") {
-          if (computerMove === "Rock") {
-            result = "You Lose.";
-          } else if (computerMove === "Paper") {
-            result = "You Win!";
-          } else if (computerMove === "Scissors") {
-            result = "Tie.";
+        } else if (playerMove === 'scissors') {
+          if (computerMove === 'rock') {
+            result = 'You lose.';
+          } else if (computerMove === 'paper') {
+            result = 'You win!';
+          } else if (computerMove === 'scissors') {
+            result = 'Tie.';
           }
         }
 
-        if (result === "You Win!") {
-          score.wins++;
-        } else if (result === "You Lose.") {
-          score.losses++;
-        } else if (result === "Tie.") {
-          score.ties++;
-        }
+        result === 'You win!' ? score.wins++ :
+        result === 'You lose.' ? score.losses++ :
+        score.ties++; 
 
         localStorage.setItem('score', JSON.stringify(score));
 
-        //         alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-        // Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
-        document.querySelector(".result").innerHTML = result;
-        document.querySelector(
-          ".move"
-        ).innerHTML = `You ${playerMove} - ${computerMove} Computer`;
-        document.querySelector(
-          ".score"
-        ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-      }
+        gameResult.innerHTML = result;
+        gameMove.innerHTML = `You ${playerMove} - ${computerMove} Computer`;
 
-      function matchResult() {}
+        
+        scoreResult();
+      };
 
+
+      function scoreResult() {
+        gameScore.innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+      };
+      
       function pickComputerMove() {
-        let computerMove = "";
-        let number = Math.random();
+        let computerMove = '';
+        let randomNumber = Math.random();
 
-        console.log(number);
-        if (number >= 0 && number <= 1 / 3) {
-          computerMove = "Rock";
-          // console.log(computerMove);
-        } else if (number >= 1 / 3 && number <= 2 / 3) {
-          computerMove = "Paper";
-          // console.log(computerMove);
-        } else {
-          computerMove = "Scissors";
-          // console.log(computerMove);
-        }
-
+        if (randomNumber >= 0 && randomNumber < 1/3) {
+          computerMove = 'rock';
+        } else if (randomNumber >= 1/3 && randomNumber < 2/3) {
+          computerMove = 'paper';
+        } else if (randomNumber >= 2/3 && randomNumber <= 1) {
+          computerMove = 'scissors';
+        } 
         return computerMove;
-      }
+        
+      };
+
     </script>
   </body>
 </html>
