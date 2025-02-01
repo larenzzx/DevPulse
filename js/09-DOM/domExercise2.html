@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        .error {
+            background-color: red;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <form action="">
+    
+            <input class="input" type="text" placeholder="Name">
+            <button class="sub">Submit</button>
+        </form>
+    
+        <p></p>
+    </div>
+
+    <div>
+
+        <form action="">
+    
+            <!-- usiing events -->
+            <input class="inputCal" type="text" onkeyup="typing()">
+
+            <!-- using eventListener -->
+            <!-- <input class="inputCal" type="text"> -->
+        </form>
+    
+        <p class="display"></p>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        const input = document.querySelector('.input');
+        const input2 = document.querySelector('.inputCal');
+        const btn = document.querySelector('.sub');
+        const btnCal = document.querySelector('.cal');
+
+        btn.addEventListener('click', show);
+        let text = ''
+
+        function show(e) {
+            e.preventDefault();
+            if (input.value === '') {
+                document.querySelector('p').innerHTML = 'Enter your name'
+                document.querySelector('p').classList.add('error');
+                setTimeout(() => (document.querySelector('p').innerHTML = ''), 3000);
+                input.value = '';
+            } else {
+                text = input.value;
+                document.querySelector('p').innerHTML = `Your name is: ${text}`;
+                document.querySelector('p').classList.remove('error');
+                input.value = '';
+
+            }
+
+        }
+
+
+        // using eventListener
+        input2.addEventListener('keyup', typing);
+
+        function typing() {
+            document.querySelector('.display').innerHTML = input2.value;
+        }
+
+
+
+    </script>
+</body>
+</html>
