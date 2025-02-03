@@ -58,7 +58,7 @@
         <p>Orders under 40php = +10php shipping</p>
         <p>Orders over 40php = FREE shipping</p>
         <form>
-            <input type="number" placeholder="Cost of order">
+            <input type="number" onkeydown="handleCostKeydown(event)" placeholder="Cost of order">
             <button type="submit" class="cal">Calculate</button>
             <p class="show"></p>
         </form>
@@ -93,35 +93,31 @@
         });
 
         
+
+        // incase na di gagana ang function when using the enter key
+        function handleCostKeydown(event){
+            if (event.key === 'Enter') {
+                calculate();
+            }
+        };
+
         // calculate shipping
         cal.addEventListener('click', calculate);
 
         function calculate(e) {
             e.preventDefault();
-            const amount = '40';
-            const shipping = Number(amount);
-            // console.log(shipping);
-            // value = Number(input.value);  we can do this to make the code shorter. we can directly use this in the statement without making a variable and convert it to number again like the above. we can simply delete it and it will already work if we use a number on the if else
+            let value = Number(input.value);
+            
 
-
-            if (input.value < shipping && input.value > 0) {
-                // we can also asign the input.value outside the if else. its much more cleaner if we assign it outside. and we can automatically convert it into number
-                let value = input.value;
-                let result = Number(value);
-                result += 10;
-                console.log(result + 'php');
-                showResult.textContent = result + 'php';
-
-            } else if (input.value >= shipping) {
-                value = input.value;
-                console.log(value + 'php');
-                showResult.innerHTML = value + 'php';
+            if (value < 40 && value > 0) {
+                value = value + 10;
+                showResult.innerHTML = `${value.toFixed(2)}php`;
+            } else if (value >= 40) {
+                showResult.innerHTML = `${value.toFixed(2)}php`;
             } else {
                 showResult.innerHTML = 'The order is empty';
-
                 setTimeout(() => (showResult.innerHTML = ''), 3000);
             }
-            
         };
 
     </script>

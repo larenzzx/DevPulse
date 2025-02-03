@@ -68,3 +68,7 @@ ex: if (nameInput.value === '' || emailInput.value === '') {
 - Number()
  -> convert string into both number and float
  -> let num = Number(variableThatContainString);
+
+- toFixed(2)
+ -> ensures that the number is always displayed with two decimal places.
+ -> value.toFixed(2)

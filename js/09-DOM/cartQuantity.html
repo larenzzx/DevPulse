@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables Exercises</title>
+
+    <style>
+      .btnWrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 1em;
+        gap: 0.5em;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>Cart Quantity</p>
+
+    <div class="btnWrapper">
+      <button onclick="displayCartQuantity();">Show Quantity</button>
+      <button onclick="updateCartQuantity(1);">Add to Cart</button>
+      <button onclick="updateCartQuantity(2);">+2</button>
+      <button onclick="updateCartQuantity(3);">+3</button>
+      <button onclick="updateCartQuantity(4);">+4</button>
+      <button onclick="updateCartQuantity(5);">+5</button>
+
+      <button onclick="updateCartQuantity(-2);">-2</button>
+      <button onclick="updateCartQuantity(-3);">-3</button>
+
+      <button onclick="
+        cart = 0;
+        displayCartQuantity();
+      ">Reset Cart</button>
+      <button onclick="updateCartQuantity(-1)">Remove</button>
+    </div>
+
+    <!-- <input class="cartQuantity" type="text" value="" style="margin-top: 1em" /> -->
+
+    <p class="cartQuantity" style="margin-top: 1em;"></p>
+
+    <script>
+      let cartQuantity = document.querySelector(".cartQuantity");
+
+      let cart = 0;
+
+
+      function updateCartQuantity(value) {
+        if (cart + value > 10) {
+          alert('The cart is full');
+          return;
+        }       
+        if (cart + value < 0) {
+          alert('The cart is empty');
+          return;
+        }
+
+
+        cart += value;
+        displayCartQuantity();
+      }
+
+      function displayCartQuantity() {
+        cartQuantity.innerHTML = `Cart quantity: ${cart}`;
+        console.log(cart);
+      }
+    </script>
+  </body>
+</html>

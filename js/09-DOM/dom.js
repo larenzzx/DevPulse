@@ -16,6 +16,7 @@
 
 /* ==== Manipulating the dom ==== */
 // document.body.innerHTML = 'hello';
+// document.body.textContent = 'hello';
 // document.body.innerHTML = '<button>Hello</button>';
 // document.title = 'Page Title change';
 // const ul = document.querySelector('.items');
