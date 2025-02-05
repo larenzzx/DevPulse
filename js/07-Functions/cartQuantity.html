@@ -21,17 +21,20 @@
 
     <div class="btnWrapper">
       <button onclick="updateCartQuantity('show')">Show Quantity</button>
-      <button onclick="updateCartQuantity('add')">Add to Cart</button>
-      <button onclick="updateCartQuantity('+2')">+2</button>
-      <button onclick="updateCartQuantity('+3')">+3</button>
-      <button onclick="updateCartQuantity('+4')">+4</button>
-      <button onclick="updateCartQuantity('+5')">+5</button>
+      <button onclick="updateCartQuantity(1)">Add to Cart</button>
+      <button onclick="updateCartQuantity(2)">+2</button>
+      <button onclick="updateCartQuantity(3)">+3</button>
+      <button onclick="updateCartQuantity(4)">+4</button>
+      <button onclick="updateCartQuantity(5)">+5</button>
 
-      <button onclick="updateCartQuantity('-2')">-2</button>
-      <button onclick="updateCartQuantity('-3')">-3</button>
+      <button onclick="updateCartQuantity(-2)">-2</button>
+      <button onclick="updateCartQuantity(-3)">-3</button>
 
-      <button onclick="updateCartQuantity('reset')">Reset Cart</button>
-      <button onclick="updateCartQuantity('remove')">Remove</button>
+      <button onclick="
+      cart = 0;
+      cartQuantity.value = cart;
+      ">Reset Cart</button>
+      <button onclick="updateCartQuantity(-1)">Remove</button>
     </div>
 
     <input class="cartQuantity" type="text" value="" style="margin-top: 1em" />
@@ -42,89 +45,112 @@
       let cart = 0;
 
       function updateCartQuantity(value) {
-        switch (value) {
-          case "show":
-            break;
-
-          case "add":
-            if (cart + 1 > 10) {
-              console.log("The cart is already full");
-              alert("The cart is already full");
-            } else {
-              cart += 1;
-            }
-            break;
-
-          case "+2":
-            if (cart + 2 > 10) {
-              console.log("The cart is already full");
-              alert("The cart is already full");
-            } else {
-              cart += 2;
-            }
-            break;
-
-          case "+3":
-            if (cart + 3 > 10) {
-              console.log("The cart is already full");
-              alert("The cart is already full");
-            } else {
-              cart += 3;
-            }
-            break;
-
-          case "+4":
-            if (cart + 4 > 10) {
-              console.log("The cart is already full");
-              alert("The cart is already full");
-            } else {
-              cart += 4;
-            }
-            break;
-
-          case "+5":
-            if (cart + 5 > 10) {
-              console.log("The cart is already full");
-              alert("The cart is already full");
-            } else {
-              cart += 5;
-            }
-            break;
-
-          case "-2":
-            if (cart - 2 < 0) {
-              console.log("The cart is already full");
-              alert("The cart is already full");
-            } else {
-              cart -= 2;
-            }
-            break;
-
-          case "-3":
-            if (cart - 3 < 0) {
-              console.log("The cart is already full");
-              alert("The cart is already full");
-            } else {
-              cart -= 3;
-            }
-            break;
-
-          case "remove":
-            if (cart - 1 < 0) {
-              console.log("The cart is already full");
-              alert("The cart is already full");
-            } else {
-              cart -= 1;
-            }
-            break;
-
-          case "reset":
-            cart = 0;
-            break;
+        if (cart + value > 10) {
+          alert('Cart is already full');
+          return
         }
+
+        if (cart + value < 0) {
+          alert('Cart is empty');
+          return
+        }
+
+        cart += value;
         cartQuantity.value = cart;
-        console.log(cart);
+
       }
+
+
+
+
+
+
+
+
+      // function updateCartQuantity(value) {
+      //   switch (value) {
+      //     case "show":
+      //       break;
+
+      //     case "add":
+      //       if (cart + 1 > 10) {
+      //         console.log("The cart is already full");
+      //         alert("The cart is already full");
+      //       } else {
+      //         cart += 1;
+      //       }
+      //       break;
+
+      //     case "+2":
+      //       if (cart + 2 > 10) {
+      //         console.log("The cart is already full");
+      //         alert("The cart is already full");
+      //       } else {
+      //         cart += 2;
+      //       }
+      //       break;
+
+      //     case "+3":
+      //       if (cart + 3 > 10) {
+      //         console.log("The cart is already full");
+      //         alert("The cart is already full");
+      //       } else {
+      //         cart += 3;
+      //       }
+      //       break;
+
+      //     case "+4":
+      //       if (cart + 4 > 10) {
+      //         console.log("The cart is already full");
+      //         alert("The cart is already full");
+      //       } else {
+      //         cart += 4;
+      //       }
+      //       break;
+
+      //     case "+5":
+      //       if (cart + 5 > 10) {
+      //         console.log("The cart is already full");
+      //         alert("The cart is already full");
+      //       } else {
+      //         cart += 5;
+      //       }
+      //       break;
+
+      //     case "-2":
+      //       if (cart - 2 < 0) {
+      //         console.log("The cart is already full");
+      //         alert("The cart is already full");
+      //       } else {
+      //         cart -= 2;
+      //       }
+      //       break;
+
+      //     case "-3":
+      //       if (cart - 3 < 0) {
+      //         console.log("The cart is already full");
+      //         alert("The cart is already full");
+      //       } else {
+      //         cart -= 3;
+      //       }
+      //       break;
+
+      //     case "remove":
+      //       if (cart - 1 < 0) {
+      //         console.log("The cart is already full");
+      //         alert("The cart is already full");
+      //       } else {
+      //         cart -= 1;
+      //       }
+      //       break;
+
+      //     case "reset":
+      //       cart = 0;
+      //       break;
+      //   }
+      //   cartQuantity.value = cart;
+      //   console.log(cart);
+      // }
     </script>
   </body>
 </html>

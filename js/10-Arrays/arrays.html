@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+
+
+    <script>
+        const myArray = [10, 20, 30];
+        console.log(myArray);
+        console.log(myArray[1]);
+        myArray[0] = 143;
+        console.log(myArray);
+
+        // we can put different data types inside the arrays. like strings, number, booleans, objects, and array inside the array
+        [1, 'hello', true, {name: 'mark'}, [1,2]];
+
+        console.log(typeof myArray);
+
+        // this will really check if it is array or not
+        console.log(Array.isArray(myArray));
+
+
+        console.log(myArray.length);
+
+        // to add new array
+        myArray.push(100);
+        console.log(myArray);
+
+        // to remove array. index(determine where to start to remove) - amount(will determine how many array to remove)
+        myArray.splice(0, 2);
+        console.log(myArray);
+    </script> 
+
+
+    
+</body>
+</html>
