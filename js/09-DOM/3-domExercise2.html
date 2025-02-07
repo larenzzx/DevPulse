@@ -30,10 +30,10 @@
         <form action="">
     
             <!-- usiing events -->
-            <input class="inputCal" type="text" onkeyup="typing()">
+            <!-- <input class="inputCal" type="text" onkeyup="typing()"> -->
 
             <!-- using eventListener -->
-            <!-- <input class="inputCal" type="text"> -->
+            <input class="inputCal" type="text">
         </form>
     
         <p class="display"></p>
@@ -75,6 +75,7 @@
         // using eventListener
         input2.addEventListener('keyup', typing);
 
+        // you can remove the event listener above if you want to use the event onkeyup listener
         function typing() {
             document.querySelector('.display').innerHTML = input2.value;
         }

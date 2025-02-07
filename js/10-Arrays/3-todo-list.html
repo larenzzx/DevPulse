@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <p>Todo List</p>
+    <form action="">
+      <input placeholder="Todo name" class="js-name-input" />
+      <button type="submit">Add</button>
+      <div class="listOfTodo"></div>
+    </form>
+
+    <script>
+      // const todoList = [];
+      const todoList = ["make dinner", "wash dishes"];
+      renderTodoList();
+
+      const btn = document.querySelector("button");
+
+      // you can either use function or an arrow function
+
+      // btn.addEventListener('click', addTodo)
+      // function addTodo(e) {
+      //     e.preventDefault();
+      //     const inputElement = document.querySelector('input');
+      //     const name = inputElement.value;
+      //     todoList.push(name);
+      //     console.log(todoList);
+      // };
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const inputElement = document.querySelector("input");
+        const name = inputElement.value;
+        todoList.push(name);
+        console.log(todoList);
+        inputElement.value = "";
+
+        renderTodoList();
+      });
+
+      function renderTodoList() {
+        //using accumulator pattern
+        // creates a variable for storing the values
+        let todoListHTML = "";
+
+        for (let i = 0; i < todoList.length; i++) {
+          //stores each of the index of todoList in a variable
+          const todo = todoList[i];
+          //   console.log(todo);
+
+          // generating the HTML / creates an element to the index of array then stores it in the variable
+          const display = `<p>${todo}</p>`;
+
+          // stores each element and each index of the todoList
+          todoListHTML += display;
+        }
+        document.querySelector(".listOfTodo").innerHTML = todoListHTML;
+      }
+    </script>
+  </body>
+</html>
