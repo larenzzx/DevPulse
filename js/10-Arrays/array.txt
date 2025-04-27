@@ -1,0 +1,3 @@
+Array - is an object that lets you store multipple values in a single variable
+      - length of a javascript array and the types of its elements are not fixed
+      - can only use integers as element indexes

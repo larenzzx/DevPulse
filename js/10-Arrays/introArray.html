@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Intro</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+    <script>
+        let cars = ["bmw", "volvo", "honda"];
+        // document.getElementById("demo").innerHTML = cars;
+
+        let bmw = cars[0];
+        // document.getElementById("demo").innerHTML = bmw;
+
+        let len = cars.length;
+        // document.getElementById("demo").innerHTML = len;
+
+        let last = cars[cars.length - 1];
+        // document.getElementById("demo").innerHTML = last;
+
+        cars.forEach((item, index, array) => {console.log(item, index);});
+
+        // document.getElementById("demo").innerHTML = cars.toString();
+
+        let last1 = cars.pop();
+        document.getElementById("demo").innerHTML = last1;
+
+    </script>
+    
+</body>
+</html>
