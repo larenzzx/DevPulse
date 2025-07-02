@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      <button onclick="calculator('1')">1</button>
+      <button onclick="calculator('2')">2</button>
+      <button onclick="calculator('3')">3</button>
+      <button onclick="calculator('+')">+</button>
+    </p>
+    <p>
+      <button onclick="calculator('4')">4</button>
+      <button onclick="calculator('5')">5</button>
+      <button onclick="calculator('6')">6</button>
+      <button onclick="calculator('-')">-</button>
+    </p>
+    <p>
+      <button onclick="calculator('7')">7</button>
+      <button onclick="calculator('8')">8</button>
+      <button onclick="calculator('9')">9</button>
+      <button onclick="calculator('*')">*</button>
+    </p>
+    <p>
+      <button onclick="calculator('0')">0</button>
+      <button onclick="calculator('/')">/</button>
+      <button onclick="calculator('.')">.</button>
+      <button onclick="calculator('=')">=</button>
+    </p>
+    <button onclick="calculator('clear')">Clear</button>
+
+    <script>
+      let calculation = "";
+
+      const operations = {
+        1: () => (calculation += "1"),
+        2: () => (calculation += "2"),
+        3: () => (calculation += "3"),
+        4: () => (calculation += "4"),
+        5: () => (calculation += "5"),
+        6: () => (calculation += "6"),
+        7: () => (calculation += "7"),
+        8: () => (calculation += "8"),
+        9: () => (calculation += "9"),
+        0: () => (calculation += "0"),
+        "+": () => (calculation += "+"),
+        "-": () => (calculation += "-"),
+        "*": () => (calculation += "*"),
+        "/": () => (calculation += "/"),
+        "clear": () => (calculation = ""),
+        ".": () => (calculation += "."),
+        "=": () => {
+            try {
+                calculation = eval(calculation);
+            } catch (error) {
+                console.error('error')
+            }
+        }
+      };
+
+      function calculator(value) {
+        operations[value] ? operations[value]() : 
+        console.log(`Unhandle operations ${value}`);
+        console.log(calculation);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<body>
+  <h2>Adding in dom and delete</h2>
+  <input id="input" type="text" placeholder="Input something" />
+  <button onclick="submit()">Submit</button>
+
+  <ul id="userList"></ul>
+
+  <script>
+    const input = document.getElementById("input");
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        submit();
+      }
+    });
+
+    function submit() {
+      const li = document.createElement("li");
+      li.textContent = input.value.trim();
+
+      const del = document.createElement("button");
+      del.textContent = "Remove";
+      del.style.marginLeft = "10px";
+      del.onclick = () => li.remove();
+      li.appendChild(del);
+
+      const list = document.getElementById("userList").appendChild(li);
+
+      input.value = "";
+    }
+  </script>
+</body>

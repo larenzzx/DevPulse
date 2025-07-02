@@ -57,3 +57,14 @@ li {
     padding: 0.5em;
     border-bottom: 1px solid #ccc;
 }
+
+.click {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 0.5em;
+    outline: none;
+    border: none;
+    padding: 0.5em;
+    background-color: #f0f0f0;
+}

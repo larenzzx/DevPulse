@@ -14,6 +14,11 @@ for (let i = 0; i < todoList.length; i++) {
   console.log(value);
 }
 
+todoList.forEach(todo => {
+  console.log(todo);
+  console.log('helo todo')
+});
+
 // Accumulator Pattern
 // 1 - creates a variable to store the result
 // 2 - loop through the array and update the result

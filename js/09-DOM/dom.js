@@ -84,3 +84,18 @@ function onSubmit(e) {
         emailInput.value = '';
     }
 }
+
+
+const add = document.getElementById('add');
+const remove = document.getElementById('remove');
+const append = document.getElementById('append');
+const child = document.createElement('li');
+
+add.addEventListener('click', () => {
+    child.innerHTML = 'Added';
+    append.appendChild(child);
+});
+
+remove.addEventListener('click', () => {
+    append.removeChild(child);
+});
