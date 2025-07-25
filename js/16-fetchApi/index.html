@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        .wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            gap: 2em;
+        }
+        .container {
+                width: 50%;
+            padding: 1em;
+            h1 {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        }
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        .list {
+            gap: 1em;
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+
+            <h1>Users</h1>
+            <ul id="userList">
+        </div>
+    </div>  
+
+    </ul>
+
+    <script src="script.js"></script>
+</body>
+</html>

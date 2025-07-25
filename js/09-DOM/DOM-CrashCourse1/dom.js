@@ -130,6 +130,20 @@
 // newDiv.style.fontSize = "30px";
 // container.insertBefore(newDiv, h1);
 
+// - removing a Child node
+// const parent = document.getElementById("div1");
+// const child = document.getElementById("p1");
+// parent.removeChild(child);
+
+
+// - replacing child node
+// parent.replaceChild(newChild, oldChild);
+// const editInput = document.createElement("input");
+// editInput.type = "text";
+// editInput.value = currentText;
+// editInput.classList.add("edit-input");
+//label.replaceChild(editInput, taskText);
+
 
 // sample code to change the background color of a card when a button is clicked
 // const click = document.querySelector(".click");
