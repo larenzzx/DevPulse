@@ -72,3 +72,19 @@ ex: if (nameInput.value === '' || emailInput.value === '') {
 - toFixed(2)
  -> ensures that the number is always displayed with two decimal places.
  -> value.toFixed(2)
+
+ - encodeURIComponent
+  -> It encodes special characters in a string so it can be safely used in a URL.
+  fetch(
+  `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`
+)
+
+
+- .some() is a JavaScript array method that checks if at least one element in the array passes a test (i.e., returns true in a callback function).
+ -> const tasks = [
+  { id: 1, completed: true },
+  { id: 2, completed: false },
+  { id: 3, completed: true }
+];
+const hasIncompleteTasks = tasks.some(task => !task.completed);
+console.log(hasIncompleteTasks); // true, because one task is not completed
