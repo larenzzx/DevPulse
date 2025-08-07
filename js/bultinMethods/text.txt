@@ -88,3 +88,9 @@ ex: if (nameInput.value === '' || emailInput.value === '') {
 ];
 const hasIncompleteTasks = tasks.some(task => !task.completed);
 console.log(hasIncompleteTasks); // true, because one task is not completed
+
+- to scroll to top when click
+ -> window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
