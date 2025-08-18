@@ -94,3 +94,24 @@ console.log(hasIncompleteTasks); // true, because one task is not completed
     top: 0,
     behavior: "smooth",
   });
+
+
+1. Spread Operator
+The spread operator is used to "spread" elements of an array or object into individual elements. It is commonly used for copying, merging, or passing elements.
+
+Examples:
+Copying an array:
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1]; // Creates a new array
+console.log(arr2); // Output: [1, 2, 3]
+
+Merging arrays:
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+const merged = [...arr1, ...arr2];
+console.log(merged); // Output: [1, 2, 3, 4]
+
+Spreading object properties:
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 };
+console.log(obj2); // Output: { a: 1, b: 2, c: 3 }

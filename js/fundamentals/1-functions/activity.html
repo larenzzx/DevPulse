@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity: Function & Scope</title>
+  </head>
+  <body>
+    <script>
+      // === activity 1 ===
+      console.log("=== ACTIVITY 1: Function Workshop ===");
+
+      // 1: A function that takes a person's name and returns a greeting
+      function person(name) {
+        return `Hello, I am ${name}`;
+      }
+      console.log(person("rai"));
+
+      // 2: An arrow function that calculates the area of a circle
+      const calculateArea = (radius) => {
+        if (radius <= 0) {
+          return "Radius must be greater than zero.";
+        }
+        const area = Math.PI * Math.pow(radius, 2);
+        return area;
+      };
+      const radius = 5;
+      console.log(`The area of the circle is: ${calculateArea(radius)}`);
+
+      // 3: A function with default parameters for creating a book object
+      function motorcycle(brand, model = "Click", cc = 125) {
+        return { brand, model, cc };
+      }
+      console.log(motorcycle("Honda"));
+      console.log(motorcycle("Yamaha", "Aerox", 155));
+
+
+      // 4: A function that uses rest parameters to find the maximum number
+      function findMaxNum(...numbers) {
+        return Math.max(...numbers);
+      }
+      console.log(findMaxNum(3, 5, 2, 10, 13, 2));
+
+
+
+      // === activity 2 ===
+      console.log("=== ACTIVITY 2: Closure Challenge ===");
+
+      // 1: Create a function that generates unique IDs (starts at 1, increments each call)
+      
+
+    </script>
+  </body>
+</html>

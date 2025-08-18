@@ -3,3 +3,4 @@ JavaScript - is a lightweight, object-oriented programming language
            - It is designed for creating dynamic web applications
            - The most popular programming language and the community support is huge
            - usage has extended to mobile app development, desktop app development, and also game development
+           
