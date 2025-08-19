@@ -21,6 +21,9 @@ const evenNumbers = numbers.filter((num) => num % 2 === 0);
 console.log(evenNumbers);
 
 // reduce - reduce array to single value
+// array.reduce((accumulator, currentItem) => { ... }, initialValue)
+// accumulator → something we’re “carrying forward” as we loop through the array
+// currentItem → the current element in the array that we’re checking right now
 const sum = numbers.reduce((acc, num) => acc + num, 0);
 console.log(sum);
 

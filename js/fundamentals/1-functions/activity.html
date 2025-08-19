@@ -11,10 +11,10 @@
       console.log("=== ACTIVITY 1: Function Workshop ===");
 
       // 1: A function that takes a person's name and returns a greeting
-      function person(name) {
+      function greeting(name) {
         return `Hello, I am ${name}`;
       }
-      console.log(person("rai"));
+      console.log(greeting("rai"));
 
       // 2: An arrow function that calculates the area of a circle
       const calculateArea = (radius) => {
@@ -28,20 +28,16 @@
       console.log(`The area of the circle is: ${calculateArea(radius)}`);
 
       // 3: A function with default parameters for creating a book object
-      function motorcycle(brand, model = "Click", cc = 125) {
-        return { brand, model, cc };
+      function createBook(author, title = "Windbreaker", chapters = 200) {
+        return { author, title, chapters };
       }
-      console.log(motorcycle("Honda"));
-      console.log(motorcycle("Yamaha", "Aerox", 155));
-
+      console.log(createBook("Jay Jo"));
 
       // 4: A function that uses rest parameters to find the maximum number
-      function findMaxNum(...numbers) {
+      function findMax(...numbers) {
         return Math.max(...numbers);
       }
-      console.log(findMaxNum(3, 5, 2, 10, 13, 2));
-
-
+      console.log(findMax(1, 2, 3, 5, 10));
 
       // === activity 2 ===
       console.log("=== ACTIVITY 2: Closure Challenge ===");
@@ -49,16 +45,16 @@
       // 1: Create a function that generates unique IDs (starts at 1, increments each call)
       function createIDGenerator() {
         let id = 0;
-
         return function () {
           id++;
+          console.log(id);
           return id;
-        }
+        };
       }
       const generateID = createIDGenerator();
-      console.log(generateID());
-      console.log(generateID());
-      console.log(generateID());
+      generateID();
+      generateID();
+      generateID();
 
       // 2: Build a simple bank account using closures (deposit, withdraw, getBalance methods)
       function createBankAccount(initialBalance = 0) {
@@ -78,35 +74,32 @@
               balance -= amount;
               console.log(`Withdrew: ${amount}`);
             } else {
-              console.log("Invalid withdraw");
+              console.log("Invalid withdraw amount");
             }
           },
           getBalance() {
             return balance;
-          }
-        }
+          },
+        };
       }
-
       const myAccount = createBankAccount(100);
       myAccount.deposit(20);
       myAccount.withdraw(10);
       console.log(myAccount.getBalance());
 
-
       // 3: Create a function that remembers how many times it's been called
       function createCounter() {
-        let count = 0
-        return function() {
-          count++
+        let count = 0;
+        return function () {
+          count++;
           console.log(count);
           return count;
-        }
+        };
       }
       const counter = createCounter();
       counter();
       counter();
       counter();
-
     </script>
   </body>
 </html>

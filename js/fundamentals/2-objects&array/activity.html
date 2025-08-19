@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity: Objects & Array</title>
+  </head>
+  <body>
+    <script>
+      // Activity 1: Object Manipulation
+      console.log("===ACTIVITY 1: OBJECT MANIPULATION===");
+
+      // Given this object, complete the tasks:
+      const library = {
+        name: "City Library",
+        books: [
+          { title: "1984", author: "George Orwell", pages: 328 },
+          { title: "Pride and Prejudice", author: "Jane Austen", pages: 432 },
+          {
+            title: "The Catcher in the Rye",
+            author: "J.D. Salinger",
+            pages: 277,
+          },
+        ],
+      };
+
+      // Tasks:
+      // 1. Add a new book to the library
+      //   library.books.push({title: "windbreaker", author: "jay jo", pages: 200});
+      //   library.books =
+      //   console.log(library);
+
+      // 2. Find books with more than 300 pages
+      const filterBook = library.books.filter((book) => book.pages > 300);
+      console.log(filterBook);
+
+      // 3. Get array of all book titles
+      const allBookTitles = library.books.map((book) => book.title);
+      console.log(allBookTitles);
+
+      // 4. Calculate total pages of all books
+      const totalPages = library.books.reduce(
+        (total, book) => total + book.pages,
+        0
+      );
+      // or
+      //   const totalPages = library.books.reduce((total, book) => {
+      //     return total + book.pages;
+      //   }, 0);
+      console.log(totalPages);
+
+      // 5. Find the shortest book
+      const shortestBook = library.books.reduce((shortest, book) =>
+        book.pages < shortest.pages ? book : shortest
+      );
+      console.log(shortestBook);
+
+      // Activity 2: Array Methods Practice
+      console.log("===ACTIVITY 2: Array Methods Practice===");
+      const students = [
+        { name: "Alice", grade: 85, subject: "Math" },
+        { name: "Bob", grade: 92, subject: "Science" },
+        { name: "Charlie", grade: 78, subject: "Math" },
+        { name: "Diana", grade: 96, subject: "Science" },
+        { name: "Eve", grade: 89, subject: "Math" },
+      ];
+
+      // Tasks:
+      // 1. Get all students with grade > 85
+      const filterGrade = students.filter((stud) => stud.grade > 85);
+      console.log(filterGrade);
+
+      // 2. Get average grade of all students
+      const studentsAverageGrade = students.reduce(
+        (all, student) => all + student.grade / 5,
+        0
+      );
+      console.log(studentsAverageGrade);
+
+      // 3. Get all Math students' names
+      const mathStudents = students.filter((st) => st.subject === "Math");
+      console.log(mathStudents);
+
+      // 4. Check if any student has grade < 80
+      const hasLowGrade = students.some((st) => st.grade < 80);
+      console.log(hasLowGrade);
+
+      // 5. Group students by subject (use reduce)
+      const groupedBySubject = students.reduce((groups, student) => {
+        if (!groups[student.subject]) {
+          groups[student.subject] = [];
+        }
+        groups[student.subject].push(student);
+        return groups;
+      }, {});
+      console.log(groupedBySubject);
+    </script>
+  </body>
+</html>
