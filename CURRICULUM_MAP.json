@@ -1,0 +1,252 @@
+[
+  {
+    "module_id": 1,
+    "title": "HTML Document Structure & Boilerplate",
+    "stage": "html",
+    "status": "has_content",
+    "source_file": "html/htmlBasics.txt",
+    "concepts": ["doctype", "html tag", "head tag", "body tag", "meta charset", "viewport"],
+    "depends_on": null,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 2,
+    "title": "Text, Headings, Lists, Links",
+    "stage": "html",
+    "status": "has_content",
+    "source_file": "html/htmlBasics.txt",
+    "concepts": ["h1-h6 headings", "p tag", "ul & ol lists", "li tag", "anchor tags (href)"],
+    "depends_on": 1,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 3,
+    "title": "Forms & Input Elements",
+    "stage": "html",
+    "status": "has_content",
+    "source_file": "html/htmlBasics.txt",
+    "concepts": ["form element", "input types (text, email, password)", "submit button", "client-side form validation"],
+    "depends_on": 2,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 4,
+    "title": "Semantic HTML & Accessibility",
+    "stage": "html",
+    "status": "has_content",
+    "source_file": "html/htmlBasics.txt",
+    "concepts": ["header", "nav", "main", "article", "section", "aside", "footer", "accessibility benefits"],
+    "depends_on": 3,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 5,
+    "title": "Tables, Media, Embeds",
+    "stage": "html",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["table, th, td elements", "img tag (src, alt)", "video element", "iframe tag"],
+    "depends_on": 4,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 6,
+    "title": "Selectors, Properties, Cascade",
+    "stage": "css",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["element/class/id selectors", "css properties", "declaration blocks", "cascade & specificity"],
+    "depends_on": 5,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 7,
+    "title": "Box Model & Layout Basics",
+    "stage": "css",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["content, padding, border, margin", "box-sizing: border-box", "display property (block, inline, inline-block)"],
+    "depends_on": 6,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 8,
+    "title": "Flexbox",
+    "stage": "css",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["flex container & flex items", "flex-direction", "justify-content", "align-items", "flex-wrap"],
+    "depends_on": 7,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 9,
+    "title": "CSS Grid",
+    "stage": "css",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["grid container & items", "grid-template-columns & grid-template-rows", "gap", "grid-column & grid-row span"],
+    "depends_on": 8,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 10,
+    "title": "Responsive Design & Media Queries",
+    "stage": "css",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["viewport meta tag", "media queries (@media)", "breakpoint strategies", "responsive text/layout"],
+    "depends_on": 9,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 11,
+    "title": "JavaScript Variables & Data Types",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/01-Variables/1-variables.html",
+    "concepts": ["let & const", "numbers", "strings", "template literals", "arithmetic operators"],
+    "depends_on": 10,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 12,
+    "title": "Control Flow & Booleans",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/02-Booleans/1-booleans.html",
+    "concepts": ["if-else statements", "comparison operators", "logical operators (&&, ||, !)", "Math.random()"],
+    "depends_on": 11,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 13,
+    "title": "Functions & Arrow Functions",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/03-Functions/1-functions.html",
+    "concepts": ["function declaration", "parameters & arguments", "return values", "arrow functions syntax"],
+    "depends_on": 12,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 14,
+    "title": "JavaScript Objects & LocalStorage",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/04-Objects/1-objects.html",
+    "concepts": ["object literals", "dot vs bracket notation", "object methods", "localStorage persistence"],
+    "depends_on": 13,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 15,
+    "title": "JavaScript Classes & OOP",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/OOP/oopUsingClass.html",
+    "concepts": ["classes blueprint", "constructor function", "methods & properties", "new instantiation", "class inheritance"],
+    "depends_on": 14,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 16,
+    "title": "Arrays & Loops",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/06-Arrays/1-arrays-and-loops.html",
+    "concepts": ["array indexing", "push & pop methods", "for loops", "while loops", "accumulator pattern"],
+    "depends_on": 15,
+    "difficulty": "beginner"
+  },
+  {
+    "module_id": 17,
+    "title": "DOM Basics & Event Listeners",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/05-DOM/1-domSample.html",
+    "concepts": ["querySelector", "textContent & innerHTML", "event listeners (addEventListener)", "styles and classList manipulation"],
+    "depends_on": 16,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 18,
+    "title": "Array Callback Methods (Map, Filter)",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/07-map()/index.js",
+    "concepts": ["callback functions", "array map method", "array filter method", "dataset transformations"],
+    "depends_on": 17,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 19,
+    "title": "Error Handling & Try-Catch",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/fundamentals/4-classes&advanceConcepts/3-errorHandling.js",
+    "concepts": ["try-catch blocks", "throw statements", "runtime exception safety"],
+    "depends_on": 18,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 20,
+    "title": "JSON — Structure, Parse, Stringify",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/11-json/index.js",
+    "concepts": ["JSON syntax rules", "JSON vs JS Objects", "JSON.stringify()", "JSON.parse()"],
+    "depends_on": 19,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 21,
+    "title": "HTTP Fundamentals — Methods, Status Codes, Headers",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["HTTP Request-Response cycle", "HTTP methods (GET, POST, PUT, DELETE)", "HTTP status codes (2xx, 4xx, 5xx)", "Headers"],
+    "depends_on": 20,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 22,
+    "title": "Fetch API — Making Requests, Promises, async/await",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": "js/12-fetchApi/1-api/script.js",
+    "concepts": ["fetch() function", "handling Promises", "async/await syntax", "response object conversion"],
+    "depends_on": 21,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 23,
+    "title": "REST API Concepts — Endpoints, Resources, RESTful Design",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["REST design principles", "URI resource paths", "stateless requests"],
+    "depends_on": 22,
+    "difficulty": "intermediate"
+  },
+  {
+    "module_id": 24,
+    "title": "Authentication — API Keys, Bearer Tokens, Basic Auth",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["Authorization header", "API keys", "Bearer tokens (JWT)", "credential handling"],
+    "depends_on": 23,
+    "difficulty": "advanced"
+  },
+  {
+    "module_id": 25,
+    "title": "Real-World API Project — Chaining Requests",
+    "stage": "javascript",
+    "status": "has_content",
+    "source_file": null,
+    "concepts": ["CRUD integration workflow", "chained fetch requests", "response dependencies"],
+    "depends_on": 24,
+    "difficulty": "advanced"
+  }
+]
