@@ -302,11 +302,18 @@ export default function Home() {
 
       let validationResult = { passed: false, message: "❌ Validation failed to execute." };
 
+      // Preprocess user code to convert 'const' and 'let' declarations to 'var' at evaluation time.
+      // This ensures they are properly attached to the iframe's global window scope so that
+      // assertion validations (which check properties on `iframe.contentWindow`) can find them.
+      const processedCode = editorCode
+        .replace(/\bconst\s+/g, 'var ')
+        .replace(/\blet\s+/g, 'var ');
+
       try {
         if (activeTab === "activity") {
-          validationResult = await activeModule.activityValidation(editorCode, iframe, logs, fetchCalls);
+          validationResult = await activeModule.activityValidation(processedCode, iframe, logs, fetchCalls);
         } else if (activeTab === "challenge") {
-          validationResult = await activeModule.challengeValidation(editorCode, iframe, logs, fetchCalls);
+          validationResult = await activeModule.challengeValidation(processedCode, iframe, logs, fetchCalls);
         }
       } catch (err: any) {
         validationResult = { passed: false, message: "❌ Assertion Error during compile: " + err.message };
