@@ -1906,7 +1906,7 @@ function checkAge(age) {
             throw new Error("Cannot divide by zero.");
         }
         return a / b;
-    } catch(err: any) {
+    } catch(err) {
         console.warn("Caught error:", err.message);
         return null;
     }
@@ -2378,7 +2378,7 @@ Almost every single modern web app talks to APIs. Whether you are loading user p
         if (!res.ok) throw new Error("HTTP error " + res.status);
         const user = await res.json();
         console.log("User Loaded:", user.name);
-    } catch(err: any) {
+    } catch(err) {
         console.error("Fetch error:", err.message);
     }
 }
@@ -2793,6 +2793,187 @@ Write an async function \`loadUserPostComments(userId)\` that:
         return { passed: false, message: "❌ Execution error: " + e.message };
       }
       return { passed: true, message: "✅ Challenge complete! Sequential chained requests resolved successfully." };
+    }
+  },
+  {
+    id: 26,
+    title: "Python Web APIs — Requests & FastAPI",
+    stage: "javascript",
+    difficulty: "intermediate",
+    description: "Perform HTTP requests in Python and build high-performance APIs using FastAPI.",
+    tutorial: `### Python API Development & Integration
+Python is one of the most popular languages for building backends and automating API integrations. This module teaches you how to consume APIs in Python and build your own endpoints using the modern **FastAPI** framework.
+
+#### Consuming APIs in Python: The \`requests\` Library
+To make HTTP requests to other servers in Python, developers use the simple **\`requests\`** library. It supports all standard HTTP verbs:
+
+##### 1. GET Requests (Read Data)
+\`\`\`python
+import requests
+
+response = requests.get("https://jsonplaceholder.typicode.com/posts/1")
+if response.status_code == 200:
+    data = response.json() # Parses JSON response body
+    print("Post Title:", data["title"])
+\`\`\`
+
+##### 2. POST Requests (Create Data)
+\`\`\`python
+import requests
+
+payload = {"title": "Python Basics", "body": "FastAPI is awesome."}
+response = requests.post("https://jsonplaceholder.typicode.com/posts", json=payload)
+print("Response JSON:", response.json()) # Prints mock post object with generated id
+\`\`\`
+
+---
+
+#### Building APIs in Python: FastAPI
+**FastAPI** is a modern, fast (high-performance), web framework for building APIs with Python 3.8+ based on standard Python type hints.
+
+##### Why use FastAPI?
+*   **Speed:** Extremely fast; on par with NodeJS and Go.
+*   **Auto-Documentation:** Generates interactive API documentation (Swagger UI at \`/docs\`) automatically.
+*   **Type Safety:** Uses Pydantic models to validate incoming JSON request body structures before execution.
+*   **Asynchronous:** Full support for \`async\` and \`await\`.
+
+##### Creating a FastAPI Application
+A FastAPI server is written by decorating python functions with route decorators specifying path and HTTP methods:
+\`\`\`python
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+# 1. Instantiate the app
+app = FastAPI()
+
+# 2. Define Pydantic request schema for body validation
+class Item(BaseModel):
+    name: str
+    price: float
+
+# 3. GET endpoint
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to Python FastAPI"}
+
+# 4. POST endpoint with JSON body Pydantic validation
+@app.post("/items")
+def create_item(item: Item):
+    return {"message": "Success!", "received_item": item.dict()}
+\`\`\`
+
+##### Running FastAPI Locally
+To run a FastAPI application, developers use **Uvicorn** (an ASGI web server):
+\`\`\`bash
+uvicorn main:app --reload
+\`\`\`
+*   \`main\` is the filename (\`main.py\`).
+*   \`app\` is the variable holding the FastAPI instance.
+*   \`--reload\` automatically restarts the server when code changes.
+
+### Why this matters
+Python is widely used in AI/ML, data analysis, and microservices. Combining the \`requests\` library for consuming third-party data with FastAPI for serving robust backend endpoints provides a complete foundation for python backend engineering.`,
+    exampleCode: `from fastapi import FastAPI
+from pydantic import BaseModel
+import requests
+
+app = FastAPI()
+
+class Product(BaseModel):
+    name: str
+    stock: int
+
+# GET route making internal request to public API
+@app.get("/pokemon/{pokemon_name}")
+def get_pokemon(pokemon_name: str):
+    res = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}")
+    if res.status_code == 200:
+        return res.json()
+    return {"error": "Pokemon not found"}
+
+# POST route accepting validated request body
+@app.post("/products")
+def add_product(prod: Product):
+    return {"status": "Added to inventory", "item": prod}
+`,
+    activityDescription: `### Activity: Python & FastAPI Starter
+Create a basic FastAPI app and fetch an external API using Python.
+
+#### Objectives:
+Write a Python script that completes the following steps:
+1. Define a FastAPI application and store it in a variable named **\`api\`**.
+2. Implement a GET route decorator on the app variable **\`api\`** at path **\`\"/status\"\`** returning a dictionary **\`{\"status\": \"online\"}\`**.
+3. Perform a GET request using the \`requests\` library to URL **\`\"https://jsonplaceholder.typicode.com/posts/1\"\`** and store the response in a variable named **\`res\`**.`,
+    activityStarter: `from fastapi import FastAPI
+import requests
+
+# 1. Initialize your FastAPI app named 'api' below:
+
+
+# 2. Create your GET /status route decorator and function below:
+
+
+# 3. Fetch from the posts/1 endpoint and save to 'res' below:
+
+`,
+    activityValidation: function(code, iframe, logs, fetchCalls) {
+      if (!code.includes("requests.get")) {
+        return { passed: false, message: "❌ Missing the requests.get() library call." };
+      }
+      if (!/res\s*=\s*requests\.get/i.test(code)) {
+        return { passed: false, message: "❌ The GET request response must be assigned to variable 'res'." };
+      }
+      if (!code.includes("https://jsonplaceholder.typicode.com/posts/1")) {
+        return { passed: false, message: "❌ The request URL must target 'https://jsonplaceholder.typicode.com/posts/1'." };
+      }
+      if (!/api\s*=\s*FastAPI\(\)/.test(code)) {
+        return { passed: false, message: "❌ Missing FastAPI application instantiation on variable name 'api'." };
+      }
+      if (!/@api\.get\(\s*["']\/status["']\s*\)/.test(code)) {
+        return { passed: false, message: "❌ Missing GET route decorator on path '/status' for application instance 'api'." };
+      }
+      // Check function structure
+      const lines = code.split('\n');
+      const defLineIndex = lines.findIndex(l => l.includes("def ") && l.includes("status"));
+      if (defLineIndex === -1) {
+        return { passed: false, message: "❌ Missing route handler function definition." };
+      }
+      const returnLine = lines.slice(defLineIndex + 1).find(l => l.includes("return") && l.includes("status") && l.includes("online"));
+      if (!returnLine) {
+        return { passed: false, message: "❌ Route function must return a dictionary containing {\"status\": \"online\"}." };
+      }
+      return { passed: true, message: "✅ Success! Python request execution and FastAPI router mapped correctly." };
+    },
+    challengeDescription: `### Challenge: Pydantic Body Validations
+Implement a FastAPI server route that accepts and validates structured JSON user input.
+
+#### Specifications:
+1. Create a FastAPI app named **\`app\`**.
+2. Declare a Pydantic model class named **\`User\`** (inheriting from \`BaseModel\`) with two fields:
+   - **\`username\`**: a string data type.
+   - **\`role\`**: a string data type.
+3. Define a POST route decorator at path **\`\"/users\"\`** that accepts a parameter of type **\`User\`** and returns a dictionary payload:
+   - **\`{\"greeting\": f\"Hello {user.username}!\"}\`** (or matching equivalent format).`,
+    challengeValidation: function(code, iframe, logs, fetchCalls) {
+      if (!/class\s+User\s*\(\s*BaseModel\s*\)/.test(code)) {
+        return { passed: false, message: "❌ Missing Pydantic model declaration 'class User(BaseModel)'." };
+      }
+      if (!/username\s*:\s*str/i.test(code)) {
+        return { passed: false, message: "❌ The User model must declare string field 'username'." };
+      }
+      if (!/role\s*:\s*str/i.test(code)) {
+        return { passed: false, message: "❌ The User model must declare string field 'role'." };
+      }
+      if (!/app\s*=\s*FastAPI\(\)/.test(code)) {
+        return { passed: false, message: "❌ Missing FastAPI application instantiation on variable 'app'." };
+      }
+      if (!/@app\.post\(\s*["']\/users["']\s*\)/.test(code)) {
+        return { passed: false, message: "❌ Missing POST route decorator at path '/users' on app instance." };
+      }
+      if (!/return\s*\{["']greeting["']\s*:\s*f?["']Hello\s+.*username.*["']\}/i.test(code)) {
+        return { passed: false, message: "❌ Route return statement must return greeting structure: '{\"greeting\": f\"Hello {user.username}!\"}'." };
+      }
+      return { passed: true, message: "✅ Challenge complete! Pydantic data schemas and route validators created successfully in Python." };
     }
   }
 ];

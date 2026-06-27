@@ -74,9 +74,20 @@ export default function Home() {
       setConsoleLogs(prev => [...prev, { type: "info", message: `🌐 [Fetch Call] ${method} -> ${url}` }]);
     };
 
+    (window as any).onSandboxFetchResponse = (method: string, url: string, status: number, statusText: string) => {
+      const isSuccess = status >= 200 && status < 300;
+      const logType = isSuccess ? "success" : status >= 400 ? "error" : "warn";
+      const icon = isSuccess ? "✅" : "❌";
+      setConsoleLogs(prev => [
+        ...prev,
+        { type: logType, message: `📥 [HTTP Response] ${icon} ${status} ${statusText} (${method} -> ${url})` }
+      ]);
+    };
+
     return () => {
       delete (window as any).onSandboxConsole;
       delete (window as any).onSandboxFetch;
+      delete (window as any).onSandboxFetchResponse;
     };
   }, [mounted]);
 
@@ -168,8 +179,10 @@ export default function Home() {
     setConsoleLogs([]);
     addTerminalLine("Executing code environment...", "system");
 
+    const isPython = activeModule.title.toLowerCase().includes("python");
+
     // JS compiler sandbox structure
-    if (activeModule.stage === "javascript") {
+    if (activeModule.stage === "javascript" && !isPython) {
       setOutputTab("console");
 
       const userJsEscaped = editorCode.replace(/<\/script>/g, '<\\/script>');
@@ -224,6 +237,9 @@ export default function Home() {
               
               try {
                 const response = await originalFetch(input, init);
+                if (window.parent.onSandboxFetchResponse) {
+                  window.parent.onSandboxFetchResponse(method, url, response.status, response.statusText || 'OK');
+                }
                 return response;
               } catch(err) {
                 captureLog('error', 'Fetch failed: ' + err.message);
@@ -247,6 +263,12 @@ export default function Home() {
       iframe.srcdoc = srcdocContent;
       // Wait for network compilations
       await new Promise(r => setTimeout(r, 1000));
+    } else if (isPython) {
+      setOutputTab("console");
+      addTerminalLine("🐍 [Python Virtual Environment] Initializing...", "info");
+      addTerminalLine("🐍 [Python] Parsing source file: main.py", "info");
+      addTerminalLine("🐍 [Python] Running environment simulation...", "info");
+      await new Promise(r => setTimeout(r, 800));
     } else {
       // HTML/CSS Sandbox
       setOutputTab("preview");
@@ -634,7 +656,7 @@ export default function Home() {
             <div className="flex-1 relative bg-slate-950">
               <Editor
                 height="100%"
-                language={activeModule.stage === "html" ? "html" : activeModule.stage === "css" ? "css" : "javascript"}
+                language={activeModule.stage === "html" ? "html" : activeModule.stage === "css" ? "css" : activeModule.title.toLowerCase().includes("python") ? "python" : "javascript"}
                 theme="vs-dark"
                 value={editorCode}
                 onChange={val => handleCodeChange(val || "")}
