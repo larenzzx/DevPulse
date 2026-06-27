@@ -2405,7 +2405,7 @@ Write an asynchronous function to fetch and download user directories.
       }
       try {
         const promise = getUsers();
-        if (!(promise instanceof Promise)) {
+        if (!(promise && typeof promise.then === 'function')) {
           return { passed: false, message: "❌ 'getUsers' must return a Promise (be declared as 'async')." };
         }
         const data = await promise;
@@ -2523,7 +2523,7 @@ Write an async function named **\`createPost\`** that:
       try {
         const dummy = { title: "Test", body: "Content", userId: 1 };
         const promise = createPost(dummy);
-        if (!(promise instanceof Promise)) {
+        if (!(promise && typeof promise.then === 'function')) {
           return { passed: false, message: "❌ 'createPost' must return a Promise." };
         }
         const response = await promise;
@@ -2626,7 +2626,7 @@ Write an async function named **\`fetchSecureData\`** that:
         const testUrl = "https://jsonplaceholder.typicode.com/posts/1";
         const key = "forge-core-key-99";
         const promise = fetchSecureData(testUrl, key);
-        if (!(promise instanceof Promise)) {
+        if (!(promise && typeof promise.then === 'function')) {
           return { passed: false, message: "❌ 'fetchSecureData' must return a Promise." };
         }
         const data = await promise;
@@ -2745,7 +2745,7 @@ Write an async function named **\`runCrudFlow\`** that executes the following ch
       }
       try {
         const promise = runCrudFlow();
-        if (!(promise instanceof Promise)) {
+        if (!(promise && typeof promise.then === 'function')) {
           return { passed: false, message: "❌ 'runCrudFlow' must return a Promise." };
         }
         const results = await promise;
